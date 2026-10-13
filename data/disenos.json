@@ -1,1 +1,102 @@
-[]
+[
+    {
+        "id":  "dis_babys_sol",
+        "nombre":  "Babys - Sol Dorado",
+        "tematica":  "Dia/Sol Dorado",
+        "grupo":  "Babys",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  70000,
+        "imagen":  "assets/disenos/babys-sol.png",
+        "materiales":  "Vestido dorado con falda acampanada. Mangas largas media campana de gasa/muselina. Escote y hombros con cuerina o tela armada dorada. Estampas en DTF textil de soles."
+    },
+    {
+        "id":  "dis_kids_sol",
+        "nombre":  "Kids - Sol Dorado",
+        "tematica":  "Dia/Sol Dorado",
+        "grupo":  "Kids",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  75000,
+        "imagen":  "assets/disenos/kids-sol.png",
+        "imagen_alt":  "assets/disenos/kids-sol-v2.png",
+        "materiales":  "Vestido blanco con detalles en dorado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina (blancas o doradas). Escote y hombros con cuerina o tela armada dorada. Estampas de soles en DTF textil."
+    },
+    {
+        "id":  "dis_kids_luna",
+        "nombre":  "Kids - Noche/Luna",
+        "tematica":  "Noche/Luna",
+        "grupo":  "Kids",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  75000,
+        "imagen":  "assets/disenos/kids-luna.png",
+        "materiales":  "Vestido con recortes en azul y plateado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina azul. Escote y hombros con cuerina o tela armada plateada. Estampas de Luna y estrellas en DTF textil."
+    },
+    {
+        "id":  "dis_preteens_sol",
+        "nombre":  "Pre Teens - Vitral Sol",
+        "tematica":  "Dia/Sol Dorado",
+        "grupo":  "Pre Teens",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  80000,
+        "imagen":  "assets/disenos/preteens-sol.png",
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+    },
+    {
+        "id":  "dis_preteens_luna",
+        "nombre":  "Pre Teens - Vitral Noche/Luna",
+        "tematica":  "Noche/Luna",
+        "grupo":  "Pre Teens",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  80000,
+        "imagen":  "assets/disenos/preteens-luna.png",
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+    },
+    {
+        "id":  "dis_adol_sol",
+        "nombre":  "Adolescentes - Vitral Sol",
+        "tematica":  "Dia/Sol Dorado",
+        "grupo":  "Adolescentes",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  85000,
+        "imagen":  "assets/disenos/adol-sol.png",
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+    },
+    {
+        "id":  "dis_adol_luna",
+        "nombre":  "Adolescentes - Vitral Noche/Luna",
+        "tematica":  "Noche/Luna",
+        "grupo":  "Adolescentes",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Vestido",
+        "precio_base":  85000,
+        "imagen":  "assets/disenos/adol-luna.png",
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+    },
+    {
+        "id":  "dis_adol_masc_sol",
+        "nombre":  "Adolescentes Masculino - Vitral Sol",
+        "tematica":  "Dia/Sol Dorado",
+        "grupo":  "Adolescentes",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Pantalon",
+        "precio_base":  85000,
+        "imagen":  "assets/disenos/adol-masc-sol.png",
+        "materiales":  "Remera sin mangas con tela sublimada vitral soles. Tiras de cuerina negras cruzadas sobre el torso. Faldo irregular con faja de cuerina negra. Pantalon negro."
+    },
+    {
+        "id":  "dis_adol_masc_luna",
+        "nombre":  "Adolescentes Masculino - Vitral Noche/Luna",
+        "tematica":  "Noche/Luna",
+        "grupo":  "Adolescentes",
+        "subgrupo":  "Vestuario",
+        "tipologia":  "Pantalon",
+        "precio_base":  85000,
+        "imagen":  "assets/disenos/adol-masc-luna.png",
+        "materiales":  "Remera sin mangas con tela sublimada vitral noche/luna. Tiras de cuerina negras cruzadas sobre el torso. Faldo irregular con faja de cuerina negra. Pantalon negro."
+    }
+]
