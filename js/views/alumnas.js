@@ -1,5 +1,5 @@
 // ============================================================
-// views/alumnas.js - Listado, filtros, importar, editar medidas
+// views/alumnas.js - Listado, filtros, edicion completa
 // ============================================================
 
 import {
@@ -20,8 +20,28 @@ export function renderAlumnas(container) {
 
   const filtrados = aplicarFiltros(participantes);
 
+  // Contadores por grupo
+  const contadores = {};
+  for (const p of participantes) {
+    const g = p.grupo || 'Sin grupo';
+    contadores[g] = (contadores[g] || 0) + 1;
+  }
+  const contadoresHtml = Object.entries(contadores)
+    .sort((a, b) => a[0].localeCompare(b[0], 'es'))
+    .map(([g, n]) => {
+      const activo = filtros.grupo === g;
+      return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button">' +
+        esc(g) + ' <strong>(' + n + ')</strong></button>';
+    }).join('');
+
   container.innerHTML =
     '<h1 class="text-headline4">Alumnas</h1>' +
+
+    '<div class="card" style="padding:var(--c-spacing-4)">' +
+      '<div class="text-caption" style="margin-bottom:var(--c-spacing-2)">Grupos</div>' +
+      '<div class="chips">' + contadoresHtml + '</div>' +
+    '</div>' +
+
     '<div class="toolbar">' +
       '<div class="toolbar__filters">' +
         sel('Grupo',    'grupo',    grupos,                     filtros.grupo) +
@@ -60,11 +80,11 @@ function aplicarFiltros(participantes) {
 function tablaHtml(filtrados) {
   return '<div class="table-wrapper"><table class="table">' +
     '<thead><tr>' +
-      '<th>Nombre</th><th>Grupo</th><th>Subgrupo</th><th>Diseno</th><th>Estado</th><th>Debe</th><th></th>' +
+      '<th>Nombre</th><th>Grupo</th><th>Subgrupo</th><th>Diseno</th><th>Precio</th><th>Estado</th><th>Debe</th><th></th>' +
     '</tr></thead>' +
     '<tbody>' +
       (filtrados.length === 0
-        ? '<tr><td colspan="7"><div class="empty-state">Sin resultados</div></td></tr>'
+        ? '<tr><td colspan="8"><div class="empty-state">Sin resultados</div></td></tr>'
         : filtrados.map(rowHtml).join('')) +
     '</tbody>' +
   '</table></div>';
@@ -76,21 +96,30 @@ function rowHtml(p) {
   const r = calcularEstadoPago(p);
   const labels = { pagado: 'Pagado', parcial: 'Parcial', sin_pago: 'Sin pago', bonificado: 'Bonificado' };
   const clases = { pagado: 'success', parcial: 'caution', sin_pago: 'error', bonificado: 'info' };
-  return '<tr data-id="' + escAttr(p.alumna_id) + '">' +
-    '<td>' + esc(al ? al.nombre : '(sin nombre)') + '</td>' +
+  const bonif = p.bonificacion ? ' <span class="badge badge--info">-' + Number(p.bonificacion).toLocaleString('es-AR') + '</span>' : '';
+  return '<tr data-id="' + escAttr(p.alumna_id) + '" data-sub="' + escAttr(p.subgrupo || '') + '">' +
+    '<td><button class="btn-link" data-ver style="background:none;border:none;padding:0;color:var(--c-color-text-info);cursor:pointer;text-align:left;font:inherit;">' + esc(al ? al.nombre : '(sin nombre)') + '</button></td>' +
     '<td>' + esc(p.grupo || '-') + '</td>' +
     '<td>' + esc(p.subgrupo || '-') + '</td>' +
     '<td>' + esc(dis ? dis.nombre : '-') + '</td>' +
+    '<td>$' + Number(p.precio_final || 0).toLocaleString('es-AR') + bonif + '</td>' +
     '<td><span class="badge badge--' + (clases[r.estado] || 'neutral') + '">' + (labels[r.estado] || r.estado) + '</span></td>' +
     '<td>$' + r.debe.toLocaleString('es-AR') + '</td>' +
     '<td><div class="table__actions">' +
-      '<button class="kebab" data-editar-medidas aria-label="Editar medidas">M</button>' +
-      '<button class="kebab" data-inactivar aria-label="Inactivar">X</button>' +
+      '<button class="btn btn--ghost btn--small" data-editar>Editar</button>' +
     '</div></td>' +
   '</tr>';
 }
 
 function wire(container) {
+  container.querySelectorAll('[data-chip-grupo]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const g = btn.dataset.chipGrupo;
+      filtros.grupo = (filtros.grupo === g) ? '' : g;
+      renderAlumnas(container);
+    });
+  });
+
   container.querySelectorAll('select[data-f]').forEach(el => {
     el.addEventListener('change', () => {
       filtros[el.dataset.f] = el.value;
@@ -108,7 +137,7 @@ function wire(container) {
         const tbody = container.querySelector('tbody');
         const filtrados = aplicarFiltros(getParticipantesEvento());
         tbody.innerHTML = filtrados.length === 0
-          ? '<tr><td colspan="7"><div class="empty-state">Sin resultados</div></td></tr>'
+          ? '<tr><td colspan="8"><div class="empty-state">Sin resultados</div></td></tr>'
           : filtrados.map(rowHtml).join('');
         wireRows(container);
       }, 180);
@@ -131,82 +160,226 @@ function wire(container) {
 }
 
 function wireRows(container) {
-  container.querySelectorAll('[data-editar-medidas]').forEach(btn => {
+  container.querySelectorAll('[data-ver]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = btn.closest('tr').dataset.id;
-      editarMedidas(id, container);
+      const tr = btn.closest('tr');
+      const id = tr.dataset.id;
+      const sub = tr.dataset.sub;
+      verDetalle(id, sub, container);
     });
   });
-  container.querySelectorAll('[data-inactivar]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const id = btn.closest('tr').dataset.id;
-      const state = getState();
-      const p = state.eventoActivo.participantes.find(x => x.alumna_id === id);
-      if (!p) return;
-      p.activa_en_evento = false;
-      try {
-        await saveEventoActivo('Inactivar ' + id + ' en evento');
-        showToast('Alumna inactivada en este evento', 'success');
-        renderAlumnas(container);
-      } catch (e) {
-        showToast('Error: ' + e.message, 'error');
-      }
+  container.querySelectorAll('[data-editar]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tr = btn.closest('tr');
+      editarParticipante(tr.dataset.id, tr.dataset.sub, container);
     });
   });
 }
 
-function editarMedidas(alumnaId, container) {
+/* ============================================================
+   MODAL DE DETALLE
+   ============================================================ */
+function verDetalle(alumnaId, subgrupo, container) {
   const al = findAlumna(alumnaId);
   if (!al) return;
   const m = al.medidas || {};
+  const state = getState();
+  const participaciones = state.eventoActivo.participantes.filter(p =>
+    p.alumna_id === alumnaId
+  );
+
+  const partHtml = participaciones.map(p => {
+    const dis = findDiseno(p.diseno_id);
+    const r = calcularEstadoPago(p);
+    return '<div style="padding:var(--c-spacing-3);border:1px solid var(--c-color-border-subtle);border-radius:var(--c-border-radius-small);margin-bottom:var(--c-spacing-2)">' +
+      '<strong>' + esc(p.grupo) + ' / ' + esc(p.subgrupo) + '</strong><br>' +
+      '<span class="text-caption">Diseno: ' + esc(dis ? dis.nombre : '-') + '</span><br>' +
+      '<span class="text-caption">Precio: $' + Number(p.precio_final || 0).toLocaleString('es-AR') +
+        (p.bonificacion ? ' (- $' + Number(p.bonificacion).toLocaleString('es-AR') + ')' : '') + '</span><br>' +
+      '<span class="text-caption">Debe: $' + r.debe.toLocaleString('es-AR') + ' / ' + r.estado + '</span>' +
+    '</div>';
+  }).join('');
 
   openModal(
     '<div class="modal__header">' +
-      '<h2 class="modal__title">Medidas - ' + esc(al.nombre) + '</h2>' +
+      '<h2 class="modal__title">' + esc(al.nombre) + '</h2>' +
       '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
     '</div>' +
     '<div class="modal__body">' +
-      '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr);gap:var(--c-spacing-3)">' +
-        '<label class="field"><span class="field__label">Busto</span>' +
-          '<input class="input" type="number" id="m-busto" value="' + (m.busto || '') + '"></label>' +
-        '<label class="field"><span class="field__label">Cintura</span>' +
-          '<input class="input" type="number" id="m-cintura" value="' + (m.cintura || '') + '"></label>' +
-        '<label class="field"><span class="field__label">Cadera</span>' +
-          '<input class="input" type="number" id="m-cadera" value="' + (m.cadera || '') + '"></label>' +
-        '<label class="field"><span class="field__label">Altura (cm)</span>' +
-          '<input class="input" type="number" id="m-altura" value="' + (m.altura || '') + '"></label>' +
-        '<label class="field"><span class="field__label">Talle</span>' +
-          '<input class="input" id="m-talle" value="' + escAttr(m.talle || '') + '"></label>' +
+      '<div><div class="text-caption">Medidas</div>' +
+        '<p>Busto: ' + (m.busto || '-') + ' / Cintura: ' + (m.cintura || '-') + ' / Cadera: ' + (m.cadera || '-') + '</p>' +
+        '<p>Altura: ' + (m.altura || '-') + ' / Talle: ' + esc(m.talle || '-') + '</p>' +
+        (m.obs ? '<p class="text-caption">Obs: ' + esc(m.obs) + '</p>' : '') +
       '</div>' +
-      '<label class="field"><span class="field__label">Observaciones</span>' +
-        '<textarea class="input input--textarea" id="m-obs">' + esc(m.obs || '') + '</textarea></label>' +
+      '<div><div class="text-caption">Participaciones en este evento</div>' + partHtml + '</div>' +
     '</div>' +
     '<div class="modal__footer">' +
-      '<button class="btn btn--ghost" type="button" data-close>Cancelar</button>' +
-      '<button class="btn btn--primary" type="button" id="m-guardar">Guardar</button>' +
+      '<button class="btn btn--ghost" type="button" data-close>Cerrar</button>' +
+      '<button class="btn btn--primary" type="button" id="det-editar">Editar</button>' +
     '</div>'
   );
 
-  document.getElementById('m-guardar').addEventListener('click', async () => {
+  document.getElementById('det-editar').addEventListener('click', () => {
+    closeModal();
+    setTimeout(() => editarParticipante(alumnaId, subgrupo, container), 100);
+  });
+}
+
+/* ============================================================
+   MODAL DE EDICION COMPLETA
+   ============================================================ */
+function editarParticipante(alumnaId, subgrupo, container) {
+  const al = findAlumna(alumnaId);
+  if (!al) return;
+  const state = getState();
+  const p = state.eventoActivo.participantes.find(x =>
+    x.alumna_id === alumnaId && (x.subgrupo || '') === (subgrupo || '')
+  );
+  if (!p) return;
+  const m = al.medidas || {};
+  const c1 = (p.cuotas && p.cuotas[0]) || { nro: 1, monto: 0, pagado: false, fecha: null };
+  const c2 = (p.cuotas && p.cuotas[1]) || { nro: 2, monto: 0, pagado: false, fecha: null };
+  const disenos = state.disenos || [];
+
+  openModal(
+    '<div class="modal__header">' +
+      '<h2 class="modal__title">Editar - ' + esc(al.nombre) + '</h2>' +
+      '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
+    '</div>' +
+    '<div class="modal__body">' +
+
+      '<div class="text-caption" style="margin-top:8px">Datos de la alumna</div>' +
+      '<label class="field"><span class="field__label">Nombre</span>' +
+        '<input class="input" id="e-nombre" value="' + escAttr(al.nombre) + '"></label>' +
+
+      '<div class="text-caption" style="margin-top:8px">Participacion en este evento</div>' +
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Grupo</span>' +
+          '<select class="input input--select" id="e-grupo">' +
+            ['Babys','Kids','Pre Teens','Adolescentes'].map(g =>
+              '<option' + (g === p.grupo ? ' selected' : '') + '>' + g + '</option>'
+            ).join('') +
+          '</select></label>' +
+        '<label class="field"><span class="field__label">Subgrupo</span>' +
+          '<select class="input input--select" id="e-subgrupo">' +
+            ['Vestuario','Comedia','Competencia'].map(s =>
+              '<option' + (s === p.subgrupo ? ' selected' : '') + '>' + s + '</option>'
+            ).join('') +
+          '</select></label>' +
+        '<label class="field"><span class="field__label">Tipologia</span>' +
+          '<input class="input" id="e-tipologia" value="' + escAttr(p.tipologia || '') + '"></label>' +
+        '<label class="field"><span class="field__label">Diseno asignado</span>' +
+          '<select class="input input--select" id="e-diseno">' +
+            '<option value="">(sin diseno)</option>' +
+            disenos.map(d =>
+              '<option value="' + escAttr(d.id) + '"' + (d.id === p.diseno_id ? ' selected' : '') + '>' +
+                esc(d.nombre) +
+              '</option>'
+            ).join('') +
+          '</select></label>' +
+      '</div>' +
+
+      '<div class="text-caption" style="margin-top:8px">Precio y bonificacion</div>' +
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Precio final</span>' +
+          '<input class="input" type="number" id="e-precio" value="' + (p.precio_final || 0) + '"></label>' +
+        '<label class="field"><span class="field__label">Bonificacion</span>' +
+          '<input class="input" type="number" id="e-bonif" value="' + (p.bonificacion || 0) + '"></label>' +
+      '</div>' +
+
+      '<div class="text-caption" style="margin-top:8px">Cuotas</div>' +
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Cuota 1 monto</span>' +
+          '<input class="input" type="number" id="e-c1m" value="' + (c1.monto || 0) + '"></label>' +
+        '<label class="field"><span class="field__label">Cuota 1 pagada</span>' +
+          '<input type="checkbox" id="e-c1p" ' + (c1.pagado ? 'checked' : '') + '></label>' +
+        '<label class="field"><span class="field__label">Cuota 2 monto</span>' +
+          '<input class="input" type="number" id="e-c2m" value="' + (c2.monto || 0) + '"></label>' +
+        '<label class="field"><span class="field__label">Cuota 2 pagada</span>' +
+          '<input type="checkbox" id="e-c2p" ' + (c2.pagado ? 'checked' : '') + '></label>' +
+      '</div>' +
+
+      '<div class="text-caption" style="margin-top:8px">Medidas</div>' +
+      '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr);gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Busto</span>' +
+          '<input class="input" type="number" id="e-busto" value="' + (m.busto || '') + '"></label>' +
+        '<label class="field"><span class="field__label">Cintura</span>' +
+          '<input class="input" type="number" id="e-cintura" value="' + (m.cintura || '') + '"></label>' +
+        '<label class="field"><span class="field__label">Cadera</span>' +
+          '<input class="input" type="number" id="e-cadera" value="' + (m.cadera || '') + '"></label>' +
+        '<label class="field"><span class="field__label">Altura</span>' +
+          '<input class="input" type="number" id="e-altura" value="' + (m.altura || '') + '"></label>' +
+        '<label class="field"><span class="field__label">Talle</span>' +
+          '<input class="input" id="e-talle" value="' + escAttr(m.talle || '') + '"></label>' +
+      '</div>' +
+      '<label class="field"><span class="field__label">Observaciones</span>' +
+        '<textarea class="input input--textarea" id="e-obs">' + esc(m.obs || '') + '</textarea></label>' +
+
+      '<label class="field"><span class="field__label">Notas del evento</span>' +
+        '<textarea class="input input--textarea" id="e-notas">' + esc(p.notas || '') + '</textarea></label>' +
+
+    '</div>' +
+    '<div class="modal__footer">' +
+      '<button class="btn btn--ghost" type="button" data-close>Cancelar</button>' +
+      '<button class="btn btn--secondary" type="button" id="e-inactivar">Inactivar en evento</button>' +
+      '<button class="btn btn--primary" type="button" id="e-guardar">Guardar</button>' +
+    '</div>'
+  );
+
+  document.getElementById('e-guardar').addEventListener('click', async () => {
+    // Actualizar alumna
+    al.nombre = document.getElementById('e-nombre').value.trim() || al.nombre;
     al.medidas = {
-      busto: Number(document.getElementById('m-busto').value) || null,
-      cintura: Number(document.getElementById('m-cintura').value) || null,
-      cadera: Number(document.getElementById('m-cadera').value) || null,
-      altura: Number(document.getElementById('m-altura').value) || null,
-      talle: document.getElementById('m-talle').value.trim(),
-      obs: document.getElementById('m-obs').value.trim(),
+      busto: Number(document.getElementById('e-busto').value) || null,
+      cintura: Number(document.getElementById('e-cintura').value) || null,
+      cadera: Number(document.getElementById('e-cadera').value) || null,
+      altura: Number(document.getElementById('e-altura').value) || null,
+      talle: document.getElementById('e-talle').value.trim(),
+      obs: document.getElementById('e-obs').value.trim(),
     };
+
+    // Actualizar participacion
+    p.grupo = document.getElementById('e-grupo').value;
+    p.subgrupo = document.getElementById('e-subgrupo').value;
+    p.tipologia = document.getElementById('e-tipologia').value.trim();
+    p.diseno_id = document.getElementById('e-diseno').value;
+    p.precio_final = Number(document.getElementById('e-precio').value) || 0;
+    p.bonificacion = Number(document.getElementById('e-bonif').value) || 0;
+    p.cuotas = [
+      { nro: 1, monto: Number(document.getElementById('e-c1m').value) || 0,
+        pagado: document.getElementById('e-c1p').checked, fecha: c1.fecha || null },
+      { nro: 2, monto: Number(document.getElementById('e-c2m').value) || 0,
+        pagado: document.getElementById('e-c2p').checked, fecha: c2.fecha || null },
+    ];
+    p.notas = document.getElementById('e-notas').value.trim();
+
     try {
-      await saveAlumnas('Actualizar medidas ' + alumnaId);
+      await saveAlumnas('Editar alumna ' + al.nombre);
+      await saveEventoActivo('Editar participacion ' + al.nombre);
       closeModal();
-      showToast('Medidas guardadas', 'success');
+      showToast('Cambios guardados', 'success');
       renderAlumnas(container);
-    } catch (e) {
-      showToast('Error: ' + e.message, 'error');
+    } catch (err) {
+      showToast('Error: ' + err.message, 'error');
+    }
+  });
+
+  document.getElementById('e-inactivar').addEventListener('click', async () => {
+    p.activa_en_evento = false;
+    try {
+      await saveEventoActivo('Inactivar ' + al.nombre + ' en evento');
+      closeModal();
+      showToast('Alumna inactivada en este evento', 'success');
+      renderAlumnas(container);
+    } catch (err) {
+      showToast('Error: ' + err.message, 'error');
     }
   });
 }
 
+/* ============================================================
+   NUEVA ALUMNA
+   ============================================================ */
 function nuevaAlumna(container) {
   openModal(
     '<div class="modal__header">' +
@@ -214,7 +387,7 @@ function nuevaAlumna(container) {
       '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
     '</div>' +
     '<div class="modal__body">' +
-      '<div class="alert alert--info">Para asociarla al evento, importala desde Excel con la plantilla o usá el boton <strong>Importar</strong>.</div>' +
+      '<div class="alert alert--info">Crea la alumna en el sistema. Para asociarla al evento, importala desde Excel o editala una vez creada.</div>' +
       '<label class="field"><span class="field__label">Nombre completo</span>' +
         '<input class="input" id="na-nombre"></label>' +
       '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr);gap:var(--c-spacing-3)">' +
@@ -259,8 +432,8 @@ function nuevaAlumna(container) {
       closeModal();
       showToast('Alumna creada', 'success');
       renderAlumnas(container);
-    } catch (e) {
-      showToast('Error: ' + e.message, 'error');
+    } catch (err) {
+      showToast('Error: ' + err.message, 'error');
     }
   });
 }
