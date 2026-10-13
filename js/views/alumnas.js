@@ -21,7 +21,6 @@ export function renderAlumnas(container) {
 
   const filtrados = aplicarFiltros(participantes);
 
-  // Contadores por grupo
   const contadores = {};
   for (const p of participantes) {
     const g = p.grupo || 'Sin grupo';
@@ -31,7 +30,7 @@ export function renderAlumnas(container) {
     .sort((a, b) => a[0].localeCompare(b[0], 'es'))
     .map(([g, n]) => {
       const activo = filtros.grupo === g;
-      return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button">' +
+      return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button" title="Filtrar por ' + escAttr(g) + '">' +
         esc(g) + ' <strong>(' + n + ')</strong></button>';
     }).join('');
 
@@ -51,9 +50,10 @@ export function renderAlumnas(container) {
         '<input class="input" style="width:220px" type="search" data-f="q" placeholder="Buscar nombre..." value="' + escAttr(filtros.q) + '">' +
       '</div>' +
       '<div class="toolbar__actions">' +
-        '<button class="btn btn--ghost btn--small" type="button" data-plantilla>Descargar plantilla</button>' +
-        '<button class="btn btn--secondary btn--small" type="button" data-importar>Importar Excel</button>' +
-        '<button class="btn btn--ghost btn--small" type="button" data-limpiar>Limpiar filtros</button>' +
+        '<button class="btn btn--ghost btn--small" type="button" data-plantilla title="Descargar planilla CSV para importar alumnas">Descargar plantilla</button>' +
+        '<button class="btn btn--secondary btn--small" type="button" data-importar title="Importar alumnas desde Excel">Importar Excel</button>' +
+        '<button class="btn btn--secondary btn--small" type="button" data-asignar title="Asignar disenos a alumnas por grupo">Asignar disenos</button>' +
+        '<button class="btn btn--ghost btn--small" type="button" data-limpiar title="Quitar todos los filtros">Limpiar filtros</button>' +
       '</div>' +
     '</div>' +
     tablaHtml(filtrados);
@@ -97,9 +97,10 @@ function rowHtml(p) {
   const r = calcularEstadoPago(p);
   const labels = { pagado: 'Pagado', parcial: 'Parcial', sin_pago: 'Sin pago', bonificado: 'Bonificado' };
   const clases = { pagado: 'success', parcial: 'caution', sin_pago: 'error', bonificado: 'info' };
-  const bonif = p.bonificacion ? ' <span class="badge badge--info">-' + Number(p.bonificacion).toLocaleString('es-AR') + '</span>' : '';
-  return '<tr data-id="' + escAttr(p.alumna_id) + '" data-sub="' + escAttr(p.subgrupo || '') + '">' +
-    '<td><button class="btn-link" data-ver style="background:none;border:none;padding:0;color:var(--c-color-text-info);cursor:pointer;text-align:left;font:inherit;">' + esc(al ? al.nombre : '(sin nombre)') + '</button></td>' +
+  const bonif = p.bonificacion ? ' <span class="badge badge--info" title="Bonificacion">-' + Number(p.bonificacion).toLocaleString('es-AR') + '</span>' : '';
+  const subKey = (p.subgrupo || '').replace(/"/g, '');
+  return '<tr data-id="' + escAttr(p.alumna_id) + '" data-sub="' + escAttr(subKey) + '">' +
+    '<td><button class="btn-link" data-ver style="background:none;border:none;padding:0;color:var(--c-color-text-info);cursor:pointer;text-align:left;font:inherit;" title="Ver detalle de la alumna">' + esc(al ? al.nombre : '(sin nombre)') + '</button></td>' +
     '<td>' + esc(p.grupo || '-') + '</td>' +
     '<td>' + esc(p.subgrupo || '-') + '</td>' +
     '<td>' + esc(dis ? dis.nombre : '-') + '</td>' +
@@ -107,7 +108,7 @@ function rowHtml(p) {
     '<td><span class="badge badge--' + (clases[r.estado] || 'neutral') + '">' + (labels[r.estado] || r.estado) + '</span></td>' +
     '<td>$' + r.debe.toLocaleString('es-AR') + '</td>' +
     '<td><div class="table__actions">' +
-      '<button class="btn btn--ghost btn--small" data-editar>Editar</button>' +
+      '<button class="btn btn--secondary btn--small" data-editar title="Editar alumna, precio, cuotas, medidas">Editar</button>' +
     '</div></td>' +
   '</tr>';
 }
@@ -155,8 +156,9 @@ function wire(container) {
   if (btnPlantilla) btnPlantilla.addEventListener('click', descargarPlantilla);
 
   const btnImportar = container.querySelector('[data-importar]');
-  const btnAsignar = container.querySelector('[data-asignar]');
   if (btnImportar) btnImportar.addEventListener('click', () => abrirImportador(() => renderAlumnas(container)));
+
+  const btnAsignar = container.querySelector('[data-asignar]');
   if (btnAsignar) btnAsignar.addEventListener('click', () => abrirAsignador(() => renderAlumnas(container)));
 
   wireRows(container);
@@ -166,9 +168,7 @@ function wireRows(container) {
   container.querySelectorAll('[data-ver]').forEach(btn => {
     btn.addEventListener('click', () => {
       const tr = btn.closest('tr');
-      const id = tr.dataset.id;
-      const sub = tr.dataset.sub;
-      verDetalle(id, sub, container);
+      verDetalle(tr.dataset.id, tr.dataset.sub, container);
     });
   });
   container.querySelectorAll('[data-editar]').forEach(btn => {
@@ -179,17 +179,12 @@ function wireRows(container) {
   });
 }
 
-/* ============================================================
-   MODAL DE DETALLE
-   ============================================================ */
 function verDetalle(alumnaId, subgrupo, container) {
   const al = findAlumna(alumnaId);
   if (!al) return;
   const m = al.medidas || {};
   const state = getState();
-  const participaciones = state.eventoActivo.participantes.filter(p =>
-    p.alumna_id === alumnaId
-  );
+  const participaciones = state.eventoActivo.participantes.filter(p => p.alumna_id === alumnaId);
 
   const partHtml = participaciones.map(p => {
     const dis = findDiseno(p.diseno_id);
@@ -228,9 +223,6 @@ function verDetalle(alumnaId, subgrupo, container) {
   });
 }
 
-/* ============================================================
-   MODAL DE EDICION COMPLETA
-   ============================================================ */
 function editarParticipante(alumnaId, subgrupo, container) {
   const al = findAlumna(alumnaId);
   if (!al) return;
@@ -238,7 +230,10 @@ function editarParticipante(alumnaId, subgrupo, container) {
   const p = state.eventoActivo.participantes.find(x =>
     x.alumna_id === alumnaId && (x.subgrupo || '') === (subgrupo || '')
   );
-  if (!p) return;
+  if (!p) {
+    showToast('No se encontro la participacion', 'warning');
+    return;
+  }
   const m = al.medidas || {};
   const c1 = (p.cuotas && p.cuotas[0]) || { nro: 1, monto: 0, pagado: false, fecha: null };
   const c2 = (p.cuotas && p.cuotas[1]) || { nro: 2, monto: 0, pagado: false, fecha: null };
@@ -324,13 +319,12 @@ function editarParticipante(alumnaId, subgrupo, container) {
     '</div>' +
     '<div class="modal__footer">' +
       '<button class="btn btn--ghost" type="button" data-close>Cancelar</button>' +
-      '<button class="btn btn--secondary" type="button" id="e-inactivar">Inactivar en evento</button>' +
+      '<button class="btn btn--secondary" type="button" id="e-inactivar" title="No la borra, solo la saca de este evento">Inactivar en evento</button>' +
       '<button class="btn btn--primary" type="button" id="e-guardar">Guardar</button>' +
     '</div>'
   );
 
   document.getElementById('e-guardar').addEventListener('click', async () => {
-    // Actualizar alumna
     al.nombre = document.getElementById('e-nombre').value.trim() || al.nombre;
     al.medidas = {
       busto: Number(document.getElementById('e-busto').value) || null,
@@ -340,8 +334,6 @@ function editarParticipante(alumnaId, subgrupo, container) {
       talle: document.getElementById('e-talle').value.trim(),
       obs: document.getElementById('e-obs').value.trim(),
     };
-
-    // Actualizar participacion
     p.grupo = document.getElementById('e-grupo').value;
     p.subgrupo = document.getElementById('e-subgrupo').value;
     p.tipologia = document.getElementById('e-tipologia').value.trim();
@@ -355,7 +347,6 @@ function editarParticipante(alumnaId, subgrupo, container) {
         pagado: document.getElementById('e-c2p').checked, fecha: c2.fecha || null },
     ];
     p.notas = document.getElementById('e-notas').value.trim();
-
     try {
       await saveAlumnas('Editar alumna ' + al.nombre);
       await saveEventoActivo('Editar participacion ' + al.nombre);
@@ -380,9 +371,6 @@ function editarParticipante(alumnaId, subgrupo, container) {
   });
 }
 
-/* ============================================================
-   NUEVA ALUMNA
-   ============================================================ */
 function nuevaAlumna(container) {
   openModal(
     '<div class="modal__header">' +
