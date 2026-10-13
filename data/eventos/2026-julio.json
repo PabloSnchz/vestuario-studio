@@ -1,0 +1,11 @@
+{
+  "id": "2026-julio",
+  "nombre": "Exhibicion Julio 2026",
+  "fecha": "2026-07-15",
+  "activo": false,
+  "cuotas": {
+    "cuota1": "Mayo 2026",
+    "cuota2": "Julio 2026"
+  },
+  "participantes": []
+}

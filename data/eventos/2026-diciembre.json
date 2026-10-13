@@ -1,0 +1,11 @@
+{
+  "id": "2026-diciembre",
+  "nombre": "Exhibicion Diciembre 2026",
+  "fecha": "2026-12-15",
+  "activo": true,
+  "cuotas": {
+    "cuota1": "Octubre 2026",
+    "cuota2": "Diciembre 2026"
+  },
+  "participantes": []
+}

@@ -1,0 +1,292 @@
+/* ============================================================
+   tokens.css - Design System Andreani (Cartesian) V.1
+   ============================================================ */
+
+:root {
+  --c-red-50: #fbe8e9;
+  --c-red-100: #f7d1d2;
+  --c-red-200: #f3babc;
+  --c-red-300: #efa3a6;
+  --c-red-400: #e77579;
+  --c-red-500: #df474d;
+  --c-red-600: #d71920;
+  --c-red-700: #b6040b;
+  --c-red-800: #810f13;
+  --c-red-900: #560a0d;
+
+  --c-orange-50: #fdefe9;
+  --c-orange-100: #fae0d4;
+  --c-orange-200: #f8d0be;
+  --c-orange-300: #f6c1a9;
+  --c-orange-400: #f1a27d;
+  --c-orange-500: #ed8352;
+  --c-orange-600: #e86427;
+  --c-orange-700: #ba501f;
+  --c-orange-800: #8b3c17;
+  --c-orange-900: #5d2810;
+
+  --c-yellow-50: #fff9ed;
+  --c-yellow-100: #fff3dc;
+  --c-yellow-200: #ffedca;
+  --c-yellow-300: #ffe7b9;
+  --c-yellow-400: #ffdb96;
+  --c-yellow-500: #ffcf73;
+  --c-yellow-600: #ffc350;
+  --c-yellow-700: #d4a140;
+  --c-yellow-800: #a97f30;
+  --c-yellow-900: #684d18;
+
+  --c-green-50: #ddf3ea;
+  --c-green-100: #bfe8d9;
+  --c-green-200: #9cd1bd;
+  --c-green-300: #8ac5af;
+  --c-green-400: #66ad92;
+  --c-green-500: #439676;
+  --c-green-600: #1f7e5a;
+  --c-green-700: #196548;
+  --c-green-800: #134c36;
+  --c-green-900: #0c3224;
+
+  --c-blue-50: #edeffb;
+  --c-blue-100: #dce0f7;
+  --c-blue-200: #cad0f3;
+  --c-blue-300: #b8c1ef;
+  --c-blue-400: #95a1e7;
+  --c-blue-500: #7182df;
+  --c-blue-600: #4e63d7;
+  --c-blue-700: #3e4fac;
+  --c-blue-800: #2f3b81;
+  --c-blue-900: #1f2856;
+
+  --c-gray-000: #ffffff;
+  --c-gray-50: #fafafa;
+  --c-gray-100: #dfe1e3;
+  --c-gray-200: #c0c3c8;
+  --c-gray-300: #a0a6ac;
+  --c-gray-400: #818891;
+  --c-gray-500: #616a75;
+  --c-gray-600: #4e555e;
+  --c-gray-700: #3a4046;
+  --c-gray-800: #272a2f;
+  --c-gray-900: #1d2023;
+
+  --c-base-black: #000000;
+  --c-base-white: #ffffff;
+  --c-opacity-opacity: #1d2023b2;
+  --c-opacity-backdrop: #1d2023;
+
+  --c-color-bg: #fafafa;
+  --c-color-bg-white: #ffffff;
+  --c-color-bg-backdrop: #1d2023b2;
+  --c-color-bg-black: #000000;
+  --c-color-surface: #ffffff;
+  --c-color-surface-hover: #fafafa;
+  --c-color-surface-disabled: #dfe1e3;
+
+  --c-color-surface-primary: #d71920;
+  --c-color-surface-primary-subtle: #fbe8e9;
+  --c-color-surface-neutral: #dfe1e3;
+  --c-color-surface-neutral-strong: #616a75;
+  --c-color-surface-neutral-subtle: #fafafa;
+  --c-color-surface-success: #1f7e5a;
+  --c-color-surface-success-subtle: #ddf3ea;
+  --c-color-surface-info: #4e63d7;
+  --c-color-surface-info-subtle: #edeffb;
+  --c-color-surface-caution: #ffc350;
+  --c-color-surface-caution-subtle: #fff9ed;
+  --c-color-surface-warning: #e86427;
+  --c-color-surface-warning-subtle: #fdefe9;
+  --c-color-surface-error: #df474d;
+  --c-color-surface-error-subtle: #fbe8e9;
+
+  --c-color-fill: #dfe1e3;
+  --c-color-fill-hover: #a0a6ac;
+  --c-color-fill-pressed: #3a4046;
+  --c-color-fill-selected: #4e555e;
+  --c-color-fill-disabled: #dfe1e3;
+  --c-color-fill-transparent: transparent;
+  --c-color-fill-transparent-hover: #fafafa;
+
+  --c-color-fill-primary: #d71920;
+  --c-color-fill-primary-hover: #b6040b;
+  --c-color-fill-primary-pressed: #810f13;
+  --c-color-fill-primary-subtle: #fbe8e9;
+
+  --c-color-fill-neutral: #dfe1e3;
+  --c-color-fill-neutral-hover: #a0a6ac;
+  --c-color-fill-neutral-pressed: #3a4046;
+  --c-color-fill-neutral-subtle: #fafafa;
+
+  --c-color-fill-success: #1f7e5a;
+  --c-color-fill-success-hover: #196548;
+  --c-color-fill-success-pressed: #134c36;
+  --c-color-fill-success-subtle: #ddf3ea;
+
+  --c-color-fill-info: #4e63d7;
+  --c-color-fill-info-hover: #3e4fac;
+  --c-color-fill-info-pressed: #2f3b81;
+  --c-color-fill-info-subtle: #edeffb;
+
+  --c-color-fill-caution: #ffc350;
+  --c-color-fill-caution-hover: #d4a140;
+  --c-color-fill-caution-pressed: #a97f30;
+  --c-color-fill-caution-subtle: #fff9ed;
+
+  --c-color-fill-warning: #e86427;
+  --c-color-fill-warning-hover: #ba501f;
+  --c-color-fill-warning-pressed: #8b3c17;
+  --c-color-fill-warning-subtle: #fdefe9;
+
+  --c-color-fill-error: #df474d;
+  --c-color-fill-error-hover: #b6040b;
+  --c-color-fill-error-pressed: #810f13;
+  --c-color-fill-error-subtle: #fbe8e9;
+
+  --c-color-text-strong: #272a2f;
+  --c-color-text: #4e555e;
+  --c-color-text-hover: #3a4046;
+  --c-color-text-pressed: #272a2f;
+  --c-color-text-subtle: #818891;
+  --c-color-text-disabled: #818891;
+  --c-color-text-inverse: #ffffff;
+
+  --c-color-text-success: #1f7e5a;
+  --c-color-text-success-subtle: #ddf3ea;
+  --c-color-text-success-strong: #0c3224;
+  --c-color-text-info: #4e63d7;
+  --c-color-text-info-subtle: #edeffb;
+  --c-color-text-info-strong: #1f2856;
+  --c-color-text-caution: #e86427;
+  --c-color-text-caution-inverse: #684d18;
+  --c-color-text-caution-subtle: #fdefe9;
+  --c-color-text-caution-strong: #5d2810;
+  --c-color-text-warning: #ffc350;
+  --c-color-text-warning-inverse: #5d2810;
+  --c-color-text-warning-subtle: #fff9ed;
+  --c-color-text-warning-strong: #684d18;
+  --c-color-text-error: #d71920;
+  --c-color-text-error-inverse: #560a0d;
+  --c-color-text-error-subtle: #fbe8e9;
+  --c-color-text-error-strong: #560a0d;
+
+  --c-color-border: #4e555e;
+  --c-color-border-strong: #818891;
+  --c-color-border-subtle: #c0c3c8;
+
+  --c-color-border-primary: #d71920;
+  --c-color-border-primary-strong: #b6040b;
+  --c-color-border-primary-subtle: #f3babc;
+  --c-color-border-primary-hover: #df474d;
+  --c-color-border-primary-selected: #810f13;
+
+  --c-color-border-success: #1f7e5a;
+  --c-color-border-success-strong: #196548;
+  --c-color-border-success-subtle: #9cd1bd;
+
+  --c-color-border-info: #4e63d7;
+  --c-color-border-info-strong: #3e4fac;
+  --c-color-border-info-subtle: #cad0f3;
+
+  --c-color-border-caution: #ffc350;
+  --c-color-border-caution-strong: #d4a140;
+  --c-color-border-caution-subtle: #ffedca;
+
+  --c-color-border-warning: #e86427;
+  --c-color-border-warning-strong: #ba501f;
+  --c-color-border-warning-subtle: #f8d0be;
+
+  --c-color-border-error: #df474d;
+  --c-color-border-error-strong: #b6040b;
+  --c-color-border-error-subtle: #f3babc;
+
+  --c-color-border-neutral: #4e555e;
+  --c-color-border-neutral-strong: #272a2f;
+  --c-color-border-neutral-subtle: #c0c3c8;
+
+  --c-color-icon-strong: #272a2f;
+  --c-color-icon-hover: #3a4046;
+  --c-color-icon-pressed: #1d2023;
+  --c-color-icon-subtle: #818891;
+  --c-color-icon-inverse: #ffffff;
+  --c-color-icon-disabled: #a0a6ac;
+
+  --c-border-width-regular: 2px;
+  --c-border-width-strong: 3px;
+  --c-border-width-subtle: 1px;
+
+  --c-border-radius-none: 0;
+  --c-border-radius-xsmall: 4px;
+  --c-border-radius-small: 8px;
+  --c-border-radius-medium: 16px;
+  --c-border-radius-large: 24px;
+  --c-border-radius-xlarge: 99px;
+
+  --c-font-family-headline: 'Rubik', system-ui, sans-serif;
+  --c-font-family-title: 'Rubik', system-ui, sans-serif;
+  --c-font-family-body: 'Roboto', system-ui, sans-serif;
+  --c-font-family-label: 'Roboto', system-ui, sans-serif;
+
+  --c-font-weight-light: 300;
+  --c-font-weight-regular: 400;
+  --c-font-weight-medium: 500;
+  --c-font-weight-bold: 700;
+  --c-font-weight-extrabold: 900;
+
+  --c-typography-headline1-size: 38px;
+  --c-typography-headline1-lh: 54px;
+  --c-typography-headline2-size: 40px;
+  --c-typography-headline2-lh: 44px;
+  --c-typography-headline3-size: 32px;
+  --c-typography-headline3-lh: 36px;
+  --c-typography-headline4-size: 24px;
+  --c-typography-headline4-lh: 28px;
+  --c-typography-headline4-weight: 700;
+  --c-typography-headline5-size: 20px;
+  --c-typography-headline5-lh: 24px;
+  --c-typography-headline5-weight: 700;
+  --c-typography-headline6-size: 18px;
+  --c-typography-headline6-lh: 22px;
+  --c-typography-headline6-weight: 700;
+  --c-typography-titlelarge-size: 18px;
+  --c-typography-titlelarge-lh: 28px;
+  --c-typography-titlelarge-weight: 500;
+  --c-typography-titlemedium-size: 16px;
+  --c-typography-titlemedium-lh: 24px;
+  --c-typography-titlemedium-weight: 500;
+  --c-typography-titlesmall-size: 14px;
+  --c-typography-titlesmall-lh: 20px;
+  --c-typography-titlesmall-weight: 500;
+  --c-typography-bodymedium-size: 16px;
+  --c-typography-bodymedium-lh: 24px;
+  --c-typography-bodysmall-size: 14px;
+  --c-typography-bodysmall-lh: 20px;
+  --c-typography-labellarge-size: 18px;
+  --c-typography-labellarge-lh: 28px;
+  --c-typography-labelmedium-size: 16px;
+  --c-typography-labelmedium-lh: 24px;
+  --c-typography-labelmedium-weight: 500;
+  --c-typography-labelsmall-size: 14px;
+  --c-typography-labelsmall-lh: 20px;
+  --c-typography-labelsmall-weight: 500;
+  --c-typography-caption-size: 12px;
+  --c-typography-caption-lh: 16px;
+  --c-typography-overline-size: 10px;
+  --c-typography-overline-lh: 14px;
+  --c-typography-overline-weight: 500;
+
+  --c-spacing-0: 0px;
+  --c-spacing-1: 4px;
+  --c-spacing-2: 8px;
+  --c-spacing-3: 12px;
+  --c-spacing-4: 16px;
+  --c-spacing-5: 24px;
+  --c-spacing-6: 32px;
+  --c-spacing-7: 48px;
+  --c-spacing-8: 64px;
+  --c-spacing-9: 80px;
+
+  --c-shadow-bottom-subtle: 0 1px 2px #4e555e40;
+  --c-shadow-bottom-regular: 0 2px 2px #4e555e40;
+  --c-shadow-drawer: 3px 0 1px #0000001a;
+  --c-shadow-focus-regular: 0 0 0 2px #ffffff, 0 0 0 4px #4e63d7;
+}
