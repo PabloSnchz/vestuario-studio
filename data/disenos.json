@@ -86,7 +86,7 @@
         "tipologia":  "Pantalon",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-masc-sol.png",
-        "materiales":  "Remera sin mangas con tela sublimada vitral soles. Tiras de cuerina negras cruzadas sobre el torso. Faldo irregular con faja de cuerina negra. Pantalon negro."
+        "materiales":  "Remera sin mangas con tela sublimada estampa vitral soles, con tiras de cuerina negras cruzadas sobre el torso y faldo irregular con faja de cuerina negra."
     },
     {
         "id":  "dis_adol_masc_luna",
@@ -97,6 +97,6 @@
         "tipologia":  "Pantalon",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-masc-luna.png",
-        "materiales":  "Remera sin mangas con tela sublimada vitral noche/luna. Tiras de cuerina negras cruzadas sobre el torso. Faldo irregular con faja de cuerina negra. Pantalon negro."
+        "materiales":  "Remera sin mangas con tela sublimada con estampa vitral noche luna, con tiras de cuerina negra cruzadas sobre el torso y faldo irregular con faja de cuerina negra."
     }
 ]
