@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestuario Studio — Chantal Aiello</title>
+  <meta name="description" content="Sistema de gestión de vestuario, alumnas y cobranza para el Estudio de Arte Chantal Aiello.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="app-header" role="banner">
+    <div class="app-header__brand">
+      <span class="app-header__logo">Vestuario Studio</span>
+      <span class="app-header__subtitle">Estudio de Arte Chantal Aiello</span>
+    </div>
+    <div class="app-header__actions">
+      <label class="app-header__event-label" for="evento-selector">Evento activo</label>
+      <select id="evento-selector" class="input input--select" aria-label="Seleccionar evento activo"></select>
+      <button id="btn-token" class="btn btn--ghost btn--small" type="button">Configurar token</button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="app-drawer" aria-label="Navegación principal">
+      <nav>
+        <ul class="app-drawer__list">
+          <li><a href="#/dashboard" data-route="dashboard" class="app-drawer__link">Dashboard</a></li>
+          <li><a href="#/alumnas"   data-route="alumnas"   class="app-drawer__link">Alumnas</a></li>
+          <li><a href="#/disenos"   data-route="disenos"   class="app-drawer__link">Diseños</a></li>
+          <li><a href="#/eventos"   data-route="eventos"   class="app-drawer__link">Eventos</a></li>
+          <li><a href="#/pagos"     data-route="pagos"     class="app-drawer__link">Pagos</a></li>
+          <li><a href="#/reportes"  data-route="reportes"  class="app-drawer__link">Reportes</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="app-main" role="main">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación">
+        <ol id="breadcrumbs-list" class="breadcrumbs__list"></ol>
+      </nav>
+
+      <section id="view-container" class="view-container" aria-live="polite">
+        <!-- Las vistas se renderizan acá -->
+      </section>
+    </main>
+  </div>
+
+  <button id="fab" class="fab" type="button" hidden aria-label="Acción principal">+</button>
+
+  <div id="modal-root" class="modal-root" hidden></div>
+  <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
