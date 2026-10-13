@@ -1,10 +1,26 @@
 {
   "version": "1.0.0",
-  "evento_activo": "2026-diciembre",
-  "grupos": ["Babys", "Kids", "Pre Teens", "Adolescentes"],
-  "subgrupos": ["Vestuario", "Comedia", "Competencia"],
-  "tematicas": ["Día/Sol Dorado", "Noche/Luna"],
-  "tipologias": ["Vestido", "Pantalón", "Falda"],
+  "evento_activo": "2026-julio",
+  "grupos": [
+    "Babys",
+    "Kids",
+    "Pre Teens",
+    "Adolescentes"
+  ],
+  "subgrupos": [
+    "Vestuario",
+    "Comedia",
+    "Competencia"
+  ],
+  "tematicas": [
+    "Día/Sol Dorado",
+    "Noche/Luna"
+  ],
+  "tipologias": [
+    "Vestido",
+    "Pantalón",
+    "Falda"
+  ],
   "repo": {
     "owner": "PabloSnchz",
     "name": "vestuario-studio",
@@ -15,7 +31,17 @@
     "cuota2": "Diciembre 2026"
   },
   "eventos": [
-    { "id": "2026-julio",     "nombre": "Exhibición Julio 2026",     "fecha": "2026-07-15", "activo": false },
-    { "id": "2026-diciembre", "nombre": "Exhibición Diciembre 2026", "fecha": "2026-12-15", "activo": true }
+    {
+      "id": "2026-julio",
+      "nombre": "Exhibición Julio 2026",
+      "fecha": "2026-07-15",
+      "activo": false
+    },
+    {
+      "id": "2026-diciembre",
+      "nombre": "Exhibición Diciembre 2026",
+      "fecha": "2026-12-15",
+      "activo": true
+    }
   ]
 }
