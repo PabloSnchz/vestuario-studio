@@ -1,1 +1,1314 @@
-[]
+[
+    {
+        "id":  "alu_001",
+        "nombre":  "Juliana Dalpra",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_002",
+        "nombre":  "Abril Ancelmo",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_003",
+        "nombre":  "Esmeralda",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_004",
+        "nombre":  "Maite",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_005",
+        "nombre":  "Martina Pomari",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_006",
+        "nombre":  "Matt",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_007",
+        "nombre":  "Ana Paula",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_008",
+        "nombre":  "Benjamin",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_009",
+        "nombre":  "Bryana",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_010",
+        "nombre":  "Cata",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_011",
+        "nombre":  "Clara",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_012",
+        "nombre":  "Guada",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_013",
+        "nombre":  "Jazmin Elli",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_014",
+        "nombre":  "Josefina",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_015",
+        "nombre":  "Juanita Roman",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_016",
+        "nombre":  "Juli Gutierrez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_017",
+        "nombre":  "Lola Roldan",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_018",
+        "nombre":  "Luciana Nieto",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_019",
+        "nombre":  "Ludmila Transillo",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_020",
+        "nombre":  "Luli",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_021",
+        "nombre":  "Magali",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_022",
+        "nombre":  "Martina Mendoza",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_023",
+        "nombre":  "Oriana",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_024",
+        "nombre":  "Paloma",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_025",
+        "nombre":  "Renata Caminos",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_026",
+        "nombre":  "Ariadna Pereyra",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_027",
+        "nombre":  "Aurora",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_028",
+        "nombre":  "Berni",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_029",
+        "nombre":  "Candelaria Mignone",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_030",
+        "nombre":  "Isabela Valente",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_031",
+        "nombre":  "Lutxi",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_032",
+        "nombre":  "Malu Banega",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_033",
+        "nombre":  "Melek",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_034",
+        "nombre":  "Olivia Pruski",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_035",
+        "nombre":  "Olvia Almiron",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_036",
+        "nombre":  "Roma",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_037",
+        "nombre":  "Ursula",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_038",
+        "nombre":  "Valen",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_039",
+        "nombre":  "Ambay",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_040",
+        "nombre":  "Candida Rodriguez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_041",
+        "nombre":  "Emilia Blessa",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_042",
+        "nombre":  "Faustina",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_043",
+        "nombre":  "Felicitas Novoa",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_044",
+        "nombre":  "Malena Bustamante",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_045",
+        "nombre":  "Martina Farberoff",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_046",
+        "nombre":  "More Mansilla",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_047",
+        "nombre":  "Wara",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_048",
+        "nombre":  "Amparo Rodriguez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_049",
+        "nombre":  "Asahi Retamaso",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_050",
+        "nombre":  "Cala",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_051",
+        "nombre":  "Cielo Arevalo",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_052",
+        "nombre":  "Ema Ramos",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_053",
+        "nombre":  "Emilia Perna",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_054",
+        "nombre":  "Emily Rodriguez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_055",
+        "nombre":  "Olivia",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_056",
+        "nombre":  "Emma Urlich",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_057",
+        "nombre":  "Esperanza",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_058",
+        "nombre":  "Fran",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_059",
+        "nombre":  "Lola",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_060",
+        "nombre":  "Martina Prina",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_061",
+        "nombre":  "Mercedes De Fino",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_062",
+        "nombre":  "Mia G",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_063",
+        "nombre":  "Rosarito",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_064",
+        "nombre":  "Zoe Piccone",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_065",
+        "nombre":  "Isa Cabrera",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_066",
+        "nombre":  "Lucia Rodriguez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_067",
+        "nombre":  "Pilar",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_068",
+        "nombre":  "Renata Aguirre",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_069",
+        "nombre":  "Cata Radavero",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_070",
+        "nombre":  "Charo Mehaudy",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_071",
+        "nombre":  "Delfina Maggio",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_072",
+        "nombre":  "Emma Banchero",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_073",
+        "nombre":  "Guada H",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_074",
+        "nombre":  "Isa Daverio",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_075",
+        "nombre":  "Jazmin Grimoldi",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_076",
+        "nombre":  "Josefina Grecco",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_077",
+        "nombre":  "Lena Amoros",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_078",
+        "nombre":  "Lucia Saizar",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_079",
+        "nombre":  "Malena Gonzalez",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_080",
+        "nombre":  "Renata Macedo",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_081",
+        "nombre":  "Simona K",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    },
+    {
+        "id":  "alu_082",
+        "nombre":  "Sofia Barusso",
+        "contacto":  "",
+        "tutor":  "",
+        "medidas":  {
+                        "busto":  null,
+                        "cintura":  null,
+                        "cadera":  null,
+                        "altura":  null,
+                        "talle":  "",
+                        "obs":  ""
+                    },
+        "activa_global":  true,
+        "notas":  ""
+    }
+]
