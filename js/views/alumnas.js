@@ -8,6 +8,7 @@ import {
 } from '../store.js';
 import { setFab, openModal, closeModal, showToast } from '../ui.js';
 import { descargarPlantilla, abrirImportador } from '../importar.js';
+import { abrirAsignador } from '../asignar.js';
 
 const filtros = { grupo: '', subgrupo: '', estado: '', q: '' };
 
@@ -154,7 +155,9 @@ function wire(container) {
   if (btnPlantilla) btnPlantilla.addEventListener('click', descargarPlantilla);
 
   const btnImportar = container.querySelector('[data-importar]');
+  const btnAsignar = container.querySelector('[data-asignar]');
   if (btnImportar) btnImportar.addEventListener('click', () => abrirImportador(() => renderAlumnas(container)));
+  if (btnAsignar) btnAsignar.addEventListener('click', () => abrirAsignador(() => renderAlumnas(container)));
 
   wireRows(container);
 }
