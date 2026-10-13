@@ -1,0 +1,4 @@
+nombre,grupo,subgrupo,tematica,diseno_id,tipologia,precio_final,bonificacion,cuota1_pagada,cuota2_pagada,notas,busto,cintura,cadera,altura,talle,observaciones
+Juliana Dalpra,Adolescentes,Comedia,Día/Sol Dorado,dis_vitral_sol,Vestido,75000,0,SI,NO,,85,65,90,165,M,
+Abril Ancelmo,Adolescentes,Competencia,Noche/Luna,dis_vitral_luna,Vestido,70000,0,SI,NO,,84,64,88,163,S,
+Abril Ancelmo,Adolescentes,Vestuario,Noche/Luna,dis_vitral_luna,Vestido,75000,0,SI,NO,,84,64,88,163,S,
