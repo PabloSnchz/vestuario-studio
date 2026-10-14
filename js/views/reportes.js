@@ -9,6 +9,7 @@ import {
   findAlumna, findDiseno,
 } from '../store.js';
 import { setFab } from '../ui.js';
+import { icons } from '../icons.js';
 
 export function renderReportes(container) {
   setFab(null);
@@ -56,6 +57,7 @@ export function renderReportes(container) {
     '<div class="cards-grid" style="grid-template-columns:repeat(2,1fr)">' +
       cardReporte({
         tipo: 'cobranza',
+        icono: 'trendingLg',
         titulo: 'Cobranza',
         subtitulo: 'Cobrado vs total del evento',
         color: 'var(--c-color-fill-success)',
@@ -65,6 +67,7 @@ export function renderReportes(container) {
       }) +
       cardReporte({
         tipo: 'deudores',
+        icono: 'alertLg',
         titulo: 'Deudores',
         subtitulo: 'Alumnas con saldo pendiente',
         color: 'var(--c-color-fill-error)',
@@ -77,6 +80,7 @@ export function renderReportes(container) {
     '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr)">' +
       cardReporte({
         tipo: 'medidas',
+        icono: 'rulerLg',
         titulo: 'Medidas',
         subtitulo: 'Faltantes de tomar',
         color: 'var(--c-color-fill-info)',
@@ -86,6 +90,7 @@ export function renderReportes(container) {
       }) +
       cardReporte({
         tipo: 'disenos',
+        icono: 'shirtLg',
         titulo: 'Disenos asignados',
         subtitulo: 'Faltantes de asignar',
         color: 'var(--c-color-fill-primary)',
@@ -95,6 +100,7 @@ export function renderReportes(container) {
       }) +
       cardReporte({
         tipo: 'cuotas',
+        icono: 'checkLg',
         titulo: 'Progreso de cuotas',
         subtitulo: 'Cuota 1 y Cuota 2',
         color: 'var(--c-color-fill-caution)',
@@ -121,21 +127,34 @@ export function renderReportes(container) {
 }
 
 function cardReporte(opts) {
-  return '<button class="card card--interactive" style="text-align:left;border-left:4px solid ' + opts.color + ';padding-left:var(--c-spacing-4);" data-reporte="' + opts.tipo + '" type="button">' +
-    '<div class="card__title">' + esc(opts.titulo) + '</div>' +
-    '<div class="card__meta">' + esc(opts.subtitulo) + '</div>' +
-    '<div style="margin-top:var(--c-spacing-2)">' +
-      '<div style="font-family:var(--c-font-family-headline);font-size:var(--c-typography-headline4-size);font-weight:700;color:var(--c-color-text-strong)">' +
-        esc(opts.principal) +
+  const iconKey = opts.icono || 'chartLg';
+  return '<button class="card card--interactive" style="text-align:left;border-left:4px solid ' + opts.color + ';padding-left:var(--c-spacing-4);position:relative;overflow:hidden;" data-reporte="' + opts.tipo + '" type="button">' +
+    '<div style="position:absolute;top:-8px;right:-8px;color:' + opts.color + ';opacity:0.12;pointer-events:none">' +
+      '<div style="width:96px;height:96px;display:flex;align-items:center;justify-content:center">' +
+        (icons[iconKey] || '') +
       '</div>' +
-      '<div class="text-caption">' + esc(opts.secundaria) + '</div>' +
     '</div>' +
-    (opts.progreso !== undefined
-      ? '<div style="margin-top:var(--c-spacing-3);height:6px;border-radius:3px;background:var(--c-color-surface-neutral-subtle);overflow:hidden">' +
-          '<div style="height:100%;width:' + opts.progreso + '%;background:' + opts.color + ';transition:width .3s"></div>' +
-        '</div>'
-      : '') +
-    '<div class="text-caption" style="margin-top:var(--c-spacing-3);color:var(--c-color-text-info)">Ver detalle &rarr;</div>' +
+    '<div style="position:relative">' +
+      '<div style="display:flex;align-items:center;gap:var(--c-spacing-2);color:' + opts.color + ';margin-bottom:var(--c-spacing-2)">' +
+        '<div style="width:28px;height:28px;display:flex;align-items:center;justify-content:center">' +
+          (icons[iconKey] || '') +
+        '</div>' +
+        '<span class="card__title" style="color:var(--c-color-text-strong)">' + esc(opts.titulo) + '</span>' +
+      '</div>' +
+      '<div class="card__meta">' + esc(opts.subtitulo) + '</div>' +
+      '<div style="margin-top:var(--c-spacing-2)">' +
+        '<div style="font-family:var(--c-font-family-headline);font-size:var(--c-typography-headline4-size);font-weight:700;color:var(--c-color-text-strong)">' +
+          esc(opts.principal) +
+        '</div>' +
+        '<div class="text-caption">' + esc(opts.secundaria) + '</div>' +
+      '</div>' +
+      (opts.progreso !== undefined
+        ? '<div style="margin-top:var(--c-spacing-3);height:6px;border-radius:3px;background:var(--c-color-surface-neutral-subtle);overflow:hidden">' +
+            '<div style="height:100%;width:' + opts.progreso + '%;background:' + opts.color + ';transition:width .3s"></div>' +
+          '</div>'
+        : '') +
+      '<div class="text-caption" style="margin-top:var(--c-spacing-3);color:var(--c-color-text-info)">Ver detalle &rarr;</div>' +
+    '</div>' +
   '</button>';
 }
 
