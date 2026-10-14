@@ -91,7 +91,7 @@ export function renderReportes(container) {
       cardReporte({
         tipo: 'disenos',
         icono: 'shirtLg',
-        titulo: 'Disenos asignados',
+        titulo: 'Diseños asignados',
         subtitulo: 'Faltantes de asignar',
         color: 'var(--c-color-fill-primary)',
         principal: sinDiseno.length + ' sin asignar',
