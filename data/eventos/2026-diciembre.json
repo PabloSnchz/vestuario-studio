@@ -885,7 +885,7 @@
     },
     {
       "alumna_id": "alu_031",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Babys",
       "subgrupo": "Vestuario",
       "diseno_id": "dis_babys_sol",
