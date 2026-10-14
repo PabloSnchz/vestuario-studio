@@ -335,7 +335,7 @@
     },
     {
       "alumna_id": "alu_012",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -360,7 +360,7 @@
     },
     {
       "alumna_id": "alu_013",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -410,7 +410,7 @@
     },
     {
       "alumna_id": "alu_015",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -435,7 +435,7 @@
     },
     {
       "alumna_id": "alu_016",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -485,7 +485,7 @@
     },
     {
       "alumna_id": "alu_018",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -685,7 +685,7 @@
     },
     {
       "alumna_id": "alu_023",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -1060,7 +1060,7 @@
     },
     {
       "alumna_id": "alu_038",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Babys",
       "subgrupo": "Vestuario",
       "diseno_id": "dis_babys_sol",
@@ -1160,7 +1160,7 @@
     },
     {
       "alumna_id": "alu_042",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Comedia",
       "diseno_id": "",
@@ -1185,7 +1185,7 @@
     },
     {
       "alumna_id": "alu_043",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Comedia",
       "diseno_id": "",
@@ -1235,7 +1235,7 @@
     },
     {
       "alumna_id": "alu_045",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Comedia",
       "diseno_id": "",
@@ -1360,7 +1360,7 @@
     },
     {
       "alumna_id": "alu_050",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -1435,7 +1435,7 @@
     },
     {
       "alumna_id": "alu_053",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -1685,7 +1685,7 @@
     },
     {
       "alumna_id": "alu_063",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Kids",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -1960,7 +1960,7 @@
     },
     {
       "alumna_id": "alu_074",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Pre Teens",
       "subgrupo": "Vestuario",
       "diseno_id": "",
@@ -2177,6 +2177,181 @@
         {
           "nro": 2,
           "monto": 40000,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_391o",
+      "activa_en_evento": true,
+      "grupo": "Kids",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 75000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 37500,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 37500,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_6u9t",
+      "activa_en_evento": true,
+      "grupo": "Babys",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 70000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 35000,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 35000,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_yanx",
+      "activa_en_evento": true,
+      "grupo": "Babys",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 70000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 35000,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 35000,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_o5vr",
+      "activa_en_evento": true,
+      "grupo": "Pre Teens",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 80000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 40000,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 40000,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_q9ng",
+      "activa_en_evento": true,
+      "grupo": "Adolescentes",
+      "subgrupo": "Comedia",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 85000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 42500,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 42500,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_2ych",
+      "activa_en_evento": true,
+      "grupo": "Adolescentes",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 85000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 42500,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 42500,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv8esbg4_gl56",
+      "activa_en_evento": true,
+      "grupo": "Adolescentes",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 85000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 42500,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 42500,
           "pagado": false,
           "fecha": null
         }

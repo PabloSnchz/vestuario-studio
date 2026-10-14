@@ -1326,5 +1326,117 @@
     },
     "activa_global": true,
     "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_391o",
+    "nombre": "Lucia Castro",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_6u9t",
+    "nombre": "Juana",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_yanx",
+    "nombre": "Sarita",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_o5vr",
+    "nombre": "Jazmin Sagrera",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_q9ng",
+    "nombre": "Donatella",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_2ych",
+    "nombre": "Guillermina",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
+  },
+  {
+    "id": "alu_mv8esbg4_gl56",
+    "nombre": "Belen",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
   }
 ]
