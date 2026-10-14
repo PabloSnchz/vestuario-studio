@@ -84,3 +84,53 @@ export async function writeJSON(repo, path, data, message) {
 
   return res.json();
 }
+export async function uploadFile(repo, path, base64Content, message) {
+  const token = getToken();
+  if (!token) throw new Error('Token de GitHub no configurado');
+
+  const url = `${API}/repos/${repo.owner}/${repo.name}/contents/${path}`;
+  const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}` };
+
+  // Ver si el archivo ya existe (para obtener el SHA)
+  const getRes = await fetch(url + `?ref=${repo.branch}`, { headers });
+  let sha = null;
+  if (getRes.ok) {
+    const data = await getRes.json();
+    sha = data.sha;
+  }
+
+  const body = {
+    message: message || `Subir ${path}`,
+    content: base64Content,
+    branch: repo.branch,
+  };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: Object.assign({}, headers, { 'Content-Type': 'application/json' }),
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    if (res.status === 401) throw new Error('Token invalido o vencido.');
+    if (res.status === 403) throw new Error('Sin permisos de escritura.');
+    if (res.status === 422) throw new Error('Archivo demasiado grande (maximo 100 MB).');
+    throw new Error(`Error subiendo ${path}: ${res.status} ${err.message || ''}`);
+  }
+  return res.json();
+}
+
+export function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('No se pudo leer el archivo'));
+    reader.onload = () => {
+      const result = reader.result;
+      const idx = result.indexOf(',');
+      resolve(result.substring(idx + 1));
+    };
+    reader.readAsDataURL(file);
+  });
+}

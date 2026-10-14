@@ -1,8 +1,9 @@
 // ============================================================
-// views/disenos.js - Galeria + ABM de disenos
+// views/disenos.js - Galeria + ABM + subida de imagenes
 // ============================================================
 
 import { getState, saveDisenos, generarId } from '../store.js';
+import { uploadFile, fileToBase64 } from '../github.js';
 import { setFab, openModal, closeModal, showToast, confirmDialog } from '../ui.js';
 import { abrirAsignador } from '../asignar.js';
 import { icons } from '../icons.js';
@@ -10,7 +11,7 @@ import { icons } from '../icons.js';
 const filtros = { tematica: '', grupo: '' };
 
 export function renderDisenos(container) {
-  setFab('Nuevo diseño', () => abrirFormDiseno(null, container), icons.plus);
+  setFab('Nuevo diseno', () => abrirFormDiseno(null, container), icons.plus);
 
   const state = getState();
   const disenos = state.disenos || [];
@@ -24,7 +25,7 @@ export function renderDisenos(container) {
   });
 
   container.innerHTML =
-    '<h1 class="text-headline4">Diseños</h1>' +
+    '<h1 class="text-headline4">Disenos</h1>' +
     '<div class="toolbar">' +
       '<div class="toolbar__filters">' +
         sel('Tematica', 'tematica', tematicas, filtros.tematica) +
@@ -145,13 +146,11 @@ function verDetalle(disenoId, container) {
       try {
         const state2 = getState();
         state2.disenos = state2.disenos.filter(x => x.id !== disenoId);
-        // Quitar asignaciones huerfanas
         const participantes2 = state2.eventoActivo.participantes || [];
         for (const p of participantes2) {
           if (p.diseno_id === disenoId) p.diseno_id = '';
         }
         await saveDisenos('Eliminar diseno ' + d.nombre);
-        // Guardar tambien el evento si habia asignaciones
         if (asignadas > 0) {
           const { saveEventoActivo } = await import('../store.js');
           await saveEventoActivo('Quitar asignaciones de ' + d.nombre);
@@ -180,6 +179,10 @@ function abrirFormDiseno(disenoId, container) {
   const subgrupos = state.config.subgrupos || [];
   const tipologias = state.config.tipologias || [];
   const tematicasSugeridas = state.config.tematicas || [];
+
+  const imgPreview = d.imagen
+    ? '<img id="f-imagen-preview" src="' + escAttr(d.imagen) + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;">'
+    : '<span id="f-imagen-preview-empty" class="text-caption" style="color:var(--c-color-text-subtle)">Sin imagen</span>';
 
   openModal(
     '<div class="modal__header">' +
@@ -213,21 +216,29 @@ function abrirFormDiseno(disenoId, container) {
           '</select></label>' +
       '</div>' +
 
-      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
-        '<label class="field"><span class="field__label">Precio base</span>' +
-          '<input class="input" type="number" id="f-precio" value="' + (d.precio_base || 0) + '"></label>' +
-        '<label class="field"><span class="field__label">Imagen (ruta en el repo)</span>' +
-          '<input class="input" id="f-imagen" value="' + escAttr(d.imagen || '') + '" placeholder="assets/disenos/xxx.png"></label>' +
+      '<label class="field"><span class="field__label">Precio base</span>' +
+        '<input class="input" type="number" id="f-precio" value="' + (d.precio_base || 0) + '"></label>' +
+
+      '<div class="text-caption" style="margin-top:8px">Imagen del diseno</div>' +
+      '<div style="display:flex;gap:var(--c-spacing-3);align-items:flex-start">' +
+        '<div style="width:120px;height:120px;background:var(--c-color-surface-neutral-subtle);border-radius:var(--c-border-radius-small);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:var(--c-spacing-2);flex-shrink:0">' +
+          imgPreview +
+        '</div>' +
+        '<div style="flex:1;display:flex;flex-direction:column;gap:var(--c-spacing-2)">' +
+          '<label class="field"><span class="field__label">Ruta en el repo</span>' +
+            '<input class="input" id="f-imagen" value="' + escAttr(d.imagen || '') + '" placeholder="assets/disenos/xxx.png"></label>' +
+          '<div style="display:flex;gap:var(--c-spacing-2);align-items:center;flex-wrap:wrap">' +
+            '<input type="file" id="f-imagen-file" accept="image/png,image/jpeg,image/webp" style="display:none">' +
+            '<button class="btn btn--secondary btn--small" type="button" id="f-imagen-btn">' + icons.upload + ' Subir imagen</button>' +
+            '<button class="btn btn--ghost btn--small" type="button" id="f-imagen-quitar">' + icons.trash + ' Quitar</button>' +
+            '<span class="text-caption" id="f-imagen-status"></span>' +
+          '</div>' +
+          '<div class="text-caption">PNG, JPG o WEBP. Recomendado menos de 2 MB. La imagen se sube a <code>assets/disenos/</code>.</div>' +
+        '</div>' +
       '</div>' +
 
       '<label class="field"><span class="field__label">Descripcion / Materiales</span>' +
-        '<textarea class="input input--textarea" id="f-materiales" style="min-height:120px">' + esc(d.materiales || '') + '</textarea></label>' +
-
-      (esNuevo ? '' :
-        '<div class="alert alert--info">' +
-          'Si cambias el nombre o la imagen, asegurate de que el archivo siga estando en <strong>assets/disenos/</strong>. ' +
-          'Para agregar imagenes nuevas, subilas al repo desde GitHub.' +
-        '</div>') +
+        '<textarea class="input input--textarea" id="f-materiales" style="min-height:100px">' + esc(d.materiales || '') + '</textarea></label>' +
 
     '</div>' +
     '<div class="modal__footer">' +
@@ -238,6 +249,64 @@ function abrirFormDiseno(disenoId, container) {
     '</div>'
   );
 
+  // Wire: subir imagen
+  const fileInput = document.getElementById('f-imagen-file');
+  const btnSubir = document.getElementById('f-imagen-btn');
+  const btnQuitar = document.getElementById('f-imagen-quitar');
+  const inputRuta = document.getElementById('f-imagen');
+  const status = document.getElementById('f-imagen-status');
+  const previewWrap = document.querySelector('#modal-root .modal__body > div > div:first-child');
+
+  btnSubir.addEventListener('click', () => fileInput.click());
+
+  btnQuitar.addEventListener('click', () => {
+    inputRuta.value = '';
+    previewWrap.innerHTML = '<span class="text-caption" style="color:var(--c-color-text-subtle)">Sin imagen</span>';
+    status.textContent = '';
+  });
+
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      showToast('La imagen supera los 5 MB. Reducila antes de subirla.', 'warning');
+      fileInput.value = '';
+      return;
+    }
+
+    // Preview local
+    const localUrl = URL.createObjectURL(file);
+    previewWrap.innerHTML = '<img src="' + localUrl + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;">';
+
+    status.textContent = 'Subiendo...';
+    status.style.color = 'var(--c-color-text-info)';
+    btnSubir.disabled = true;
+
+    try {
+      const base64 = await fileToBase64(file);
+      const ext = (file.name.split('.').pop() || 'png').toLowerCase();
+      const slug = slugify(document.getElementById('f-nombre').value || file.name.split('.')[0]);
+      const timestamp = Date.now().toString(36);
+      const path = 'assets/disenos/' + slug + '-' + timestamp + '.' + ext;
+
+      const state2 = getState();
+      await uploadFile(state2.repo, path, base64, 'Subir imagen ' + path);
+
+      inputRuta.value = path;
+      status.textContent = 'Imagen subida';
+      status.style.color = 'var(--c-color-text-success)';
+      showToast('Imagen subida a ' + path, 'success');
+    } catch (err) {
+      status.textContent = 'Error';
+      status.style.color = 'var(--c-color-text-error)';
+      showToast('Error: ' + err.message, 'error');
+    } finally {
+      btnSubir.disabled = false;
+    }
+  });
+
+  // Wire: guardar
   document.getElementById('f-guardar').addEventListener('click', async () => {
     const nombre = document.getElementById('f-nombre').value.trim();
     if (!nombre) return showToast('El nombre es obligatorio', 'warning');
@@ -270,6 +339,15 @@ function abrirFormDiseno(disenoId, container) {
       showToast('Error: ' + err.message, 'error');
     }
   });
+}
+
+function slugify(str) {
+  return String(str || 'imagen')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .substring(0, 40) || 'imagen';
 }
 
 function generarIdDiseno(nombre) {
