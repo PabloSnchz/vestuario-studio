@@ -40,7 +40,7 @@
       "subgrupo": "Competencia",
       "diseno_id": "",
       "tipologia": "Vestido",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -65,7 +65,7 @@
       "subgrupo": "Competencia",
       "diseno_id": "",
       "tipologia": "Vestido",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -90,7 +90,7 @@
       "subgrupo": "Competencia",
       "diseno_id": "",
       "tipologia": "Vestido",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -115,7 +115,7 @@
       "subgrupo": "Competencia",
       "diseno_id": "",
       "tipologia": "Vestido",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -140,7 +140,7 @@
       "subgrupo": "Competencia",
       "diseno_id": "",
       "tipologia": "Vestido",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -296,7 +296,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -340,7 +340,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -365,7 +365,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -396,7 +396,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -415,7 +415,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -490,7 +490,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Falda",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -546,7 +546,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -571,7 +571,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -690,7 +690,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 85000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -746,7 +746,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -821,7 +821,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -846,7 +846,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -890,7 +890,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "dis_babys_sol",
       "tipologia": "",
-      "precio_final": 70000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -921,7 +921,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -946,7 +946,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -971,7 +971,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -996,7 +996,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1065,7 +1065,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "dis_babys_sol",
       "tipologia": "",
-      "precio_final": 70000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1165,7 +1165,7 @@
       "subgrupo": "Comedia",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1190,7 +1190,7 @@
       "subgrupo": "Comedia",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1240,7 +1240,7 @@
       "subgrupo": "Comedia",
       "diseno_id": "",
       "tipologia": "Falda",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1271,7 +1271,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1321,7 +1321,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1365,7 +1365,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1396,7 +1396,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1421,7 +1421,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1440,7 +1440,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1596,7 +1596,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1690,7 +1690,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Falda",
-      "precio_final": 75000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1721,7 +1721,32 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 37500,
+          "pagado": true,
+          "fecha": null
+        }
+      ],
+      "notas": ""
+    },
+    {
+      "alumna_id": "alu_065",
+      "activa_en_evento": true,
+      "grupo": "Kids",
+      "subgrupo": "Comedia",
+      "diseno_id": "",
+      "tipologia": "Pantalon",
+      "precio_final": 75000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 37500,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1734,34 +1759,9 @@
       "notas": ""
     },
     {
-      "alumna_id": "alu_065",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Comedia",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
       "alumna_id": "alu_066",
       "activa_en_evento": true,
-      "grupo": "Pre Teens",
+      "grupo": "Adolescentes",
       "subgrupo": "Comedia",
       "diseno_id": "",
       "tipologia": "Falda",
@@ -1811,11 +1811,11 @@
     {
       "alumna_id": "alu_068",
       "activa_en_evento": true,
-      "grupo": "Pre Teens",
+      "grupo": "Kids",
       "subgrupo": "Comedia",
       "diseno_id": "",
       "tipologia": "Falda",
-      "precio_final": 80000,
+      "precio_final": 75000,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -1921,7 +1921,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1946,7 +1946,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1965,7 +1965,7 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Pantalon",
-      "precio_final": 80000,
+      "precio_final": 0,
       "bonificacion": 0,
       "cuotas": [
         {
@@ -2196,7 +2196,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -2221,7 +2221,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -2246,7 +2246,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -2346,7 +2346,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
