@@ -1,2362 +1,1788 @@
 {
-  "id": "2026-diciembre",
-  "nombre": "Exhibicion Diciembre 2026",
-  "fecha": "2026-12-15",
-  "activo": true,
-  "cuotas": {
-    "cuota1": "Octubre 2026",
-    "cuota2": "Diciembre 2026"
-  },
-  "participantes": [
-    {
-      "alumna_id": "alu_001",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_002",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Competencia",
-      "diseno_id": "",
-      "tipologia": "Vestido",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_003",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Competencia",
-      "diseno_id": "",
-      "tipologia": "Vestido",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_004",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Competencia",
-      "diseno_id": "",
-      "tipologia": "Vestido",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_005",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Competencia",
-      "diseno_id": "",
-      "tipologia": "Vestido",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_006",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Competencia",
-      "diseno_id": "",
-      "tipologia": "Vestido",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_002",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_007",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_008",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_009",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_010",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_011",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_003",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_012",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_013",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_014",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_015",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_016",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_017",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_018",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_019",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_020",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_021",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_004",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_022",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_005",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_006",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_023",
-      "activa_en_evento": false,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_024",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_025",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_026",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_027",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_028",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_029",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_030",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_031",
-      "activa_en_evento": false,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_032",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_033",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_034",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_035",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_036",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_037",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_038",
-      "activa_en_evento": false,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "dis_babys_sol",
-      "tipologia": "",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_039",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_040",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_041",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_042",
-      "activa_en_evento": false,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_043",
-      "activa_en_evento": false,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_044",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_045",
-      "activa_en_evento": false,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_046",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_047",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_048",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_049",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_050",
-      "activa_en_evento": false,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_051",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_052",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_053",
-      "activa_en_evento": false,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_054",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_055",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_056",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_057",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_058",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_059",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_060",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_061",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_062",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_063",
-      "activa_en_evento": false,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_064",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_065",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_066",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_067",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_068",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_069",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_070",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_071",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_072",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_073",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_074",
-      "activa_en_evento": false,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 0,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_075",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_076",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_077",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_078",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_079",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_080",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_081",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Falda",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_082",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "Pantalon",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_391o",
-      "activa_en_evento": true,
-      "grupo": "Kids",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 75000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 37500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 37500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_6u9t",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_yanx",
-      "activa_en_evento": true,
-      "grupo": "Babys",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 70000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 35000,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 35000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_o5vr",
-      "activa_en_evento": true,
-      "grupo": "Pre Teens",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 80000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 40000,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_q9ng",
-      "activa_en_evento": true,
-      "grupo": "Comedia",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_2ych",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    },
-    {
-      "alumna_id": "alu_mv8esbg4_gl56",
-      "activa_en_evento": true,
-      "grupo": "Adolescentes",
-      "subgrupo": "Vestuario",
-      "diseno_id": "",
-      "tipologia": "",
-      "precio_final": 85000,
-      "bonificacion": 0,
-      "cuotas": [
-        {
-          "nro": 1,
-          "monto": 42500,
-          "pagado": true,
-          "fecha": null
-        },
-        {
-          "nro": 2,
-          "monto": 42500,
-          "pagado": false,
-          "fecha": null
-        }
-      ],
-      "notas": ""
-    }
-  ]
+    "id":  "2026-diciembre",
+    "nombre":  "Exhibicion Diciembre 2026",
+    "fecha":  "2026-12-15",
+    "activo":  true,
+    "cuotas":  {
+                   "cuota1":  "Octubre 2026",
+                   "cuota2":  "Diciembre 2026"
+               },
+    "participantes":  [
+                          {
+                              "alumna_id":  "alu_001",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_002",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_007",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_008",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_009",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_010",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_011",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_003",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_014",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_017",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_019",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_020",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_021",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_004",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_022",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_005",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_006",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_024",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_025",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_026",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_027",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_028",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_029",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_030",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_032",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_033",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_034",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_035",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_036",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_037",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "dis_babys_sol",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_039",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_040",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_041",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_044",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_046",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_047",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_048",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_049",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_051",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_052",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_054",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_055",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_056",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_057",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_058",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_059",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_060",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_061",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_062",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_064",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_065",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_066",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_067",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_068",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_069",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_070",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_071",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_072",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_073",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_075",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_076",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_077",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_078",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_079",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_080",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_081",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Falda",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_082",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "Pantalon",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_391o",
+                              "grupo":  "Kids",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  75000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  37500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  37500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_6u9t",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_yanx",
+                              "grupo":  "Babys",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  70000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  35000,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  35000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_o5vr",
+                              "grupo":  "Pre Teens",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  80000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  40000,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_q9ng",
+                              "grupo":  "Comedia",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_2ych",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          },
+                          {
+                              "alumna_id":  "alu_mv8esbg4_gl56",
+                              "grupo":  "Adolescentes",
+                              "subgrupo":  "Vestuario",
+                              "diseno_id":  "",
+                              "tipologia":  "",
+                              "precio_final":  85000,
+                              "bonificacion":  0,
+                              "cuotas":  [
+                                             {
+                                                 "nro":  1,
+                                                 "monto":  42500,
+                                                 "pagado":  true,
+                                                 "fecha":  null
+                                             },
+                                             {
+                                                 "nro":  2,
+                                                 "monto":  42500,
+                                                 "pagado":  false,
+                                                 "fecha":  null
+                                             }
+                                         ],
+                              "notas":  ""
+                          }
+                      ]
 }
