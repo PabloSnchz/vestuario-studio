@@ -36,13 +36,17 @@ export function renderPagos(container) {
     const g = p.grupo || 'Sin grupo';
     contadores[g] = (contadores[g] || 0) + 1;
   }
-  const chipsHtml = Object.entries(contadores)
-    .sort((a, b) => a[0].localeCompare(b[0], 'es'))
-    .map(([g, n]) => {
-      const activo = filtros.grupo === g;
-      return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button" title="Filtrar por ' + escAttr(g) + '">' +
-        esc(g) + ' <strong>(' + n + ')</strong></button>';
-    }).join('');
+  const ordenCfg = (state.config && state.config.grupos) || [];
+  const gruposOrdenados = ordenCfg.filter(g => contadores[g]);
+  for (const g of Object.keys(contadores)) {
+    if (gruposOrdenados.indexOf(g) === -1) gruposOrdenados.push(g);
+  }
+  const chipsHtml = gruposOrdenados.map(g => {
+    const n = contadores[g];
+    const activo = filtros.grupo === g;
+    return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button" title="Filtrar por ' + escAttr(g) + '">' +
+      esc(g) + ' <strong>(' + n + ')</strong></button>';
+  }).join('');
 
   container.innerHTML =
     '<h1 class="text-headline4">Pagos</h1>' +

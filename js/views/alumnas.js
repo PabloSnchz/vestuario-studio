@@ -29,13 +29,17 @@ export function renderAlumnas(container) {
     const g = p.grupo || 'Sin grupo';
     contadores[g] = (contadores[g] || 0) + 1;
   }
-  const contadoresHtml = Object.entries(contadores)
-    .sort((a, b) => a[0].localeCompare(b[0], 'es'))
-    .map(([g, n]) => {
-      const activo = filtros.grupo === g;
-      return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button" title="Filtrar por ' + escAttr(g) + '">' +
-        esc(g) + ' <strong>(' + n + ')</strong></button>';
-    }).join('');
+  const ordenCfg = (getState().config && getState().config.grupos) || [];
+  const gruposOrdenados = ordenCfg.filter(g => contadores[g]);
+  for (const g of Object.keys(contadores)) {
+    if (gruposOrdenados.indexOf(g) === -1) gruposOrdenados.push(g);
+  }
+  const contadoresHtml = gruposOrdenados.map(g => {
+    const n = contadores[g];
+    const activo = filtros.grupo === g;
+    return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-grupo="' + escAttr(g) + '" type="button" title="Filtrar por ' + escAttr(g) + '">' +
+      esc(g) + ' <strong>(' + n + ')</strong></button>';
+  }).join('');
 
   const totalInactivas = participantes.filter(p => p.activa_en_evento === false).length;
 
@@ -56,14 +60,15 @@ export function renderAlumnas(container) {
           '<input type="checkbox" data-f="verInactivas" ' + (filtros.verInactivas ? 'checked' : '') + '>' +
           'Ver inactivas' + (totalInactivas > 0 ? ' <span class="badge badge--neutral">' + totalInactivas + '</span>' : '') +
         '</label>' +
+        '<button class="btn btn--ghost btn--small" type="button" data-limpiar title="Quitar todos los filtros">Limpiar filtros</button>' +
       '</div>' +
       '<div class="toolbar__actions">' +
-        '<button class="btn btn--ghost btn--small" type="button" data-plantilla title="Descargar planilla CSV para importar alumnas">Descargar plantilla</button>' +
-        '<button class="btn btn--secondary btn--small" type="button" data-importar title="Importar alumnas desde Excel">Importar Excel</button>' +
+        '<button class="btn btn--primary btn--small" type="button" data-modo-edicion title="Editar por lote: activa/inactiva, grupo, subgrupo, precio y altas nuevas">Modo edicion</button>' +
         '<button class="btn btn--secondary btn--small" type="button" data-asignar title="Asignar disenos a alumnas por grupo">Asignar disenos</button>' +
         '<button class="btn btn--ghost btn--small" type="button" data-inactivar title="Inactivar alumnas por grupo">Inactivar alumnas</button>' +
-        '<button class="btn btn--primary btn--small" type="button" data-modo-edicion title="Editar por lote: activa/inactiva, grupo, subgrupo, precio y altas nuevas">Modo edicion</button>' +
-        '<button class="btn btn--ghost btn--small" type="button" data-limpiar title="Quitar todos los filtros">Limpiar filtros</button>' +
+        '<span style="width:1px;height:20px;background:var(--c-color-border-subtle);margin:0 var(--c-spacing-2)"></span>' +
+        '<button class="btn btn--secondary btn--small" type="button" data-importar title="Importar alumnas desde Excel">Importar Excel</button>' +
+        '<button class="btn btn--ghost btn--small" type="button" data-plantilla title="Descargar planilla CSV para importar alumnas">Descargar plantilla</button>' +
       '</div>' +
     '</div>' +
     tablaHtml(filtrados);

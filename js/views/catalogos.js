@@ -23,9 +23,14 @@ export function renderCatalogos(container) {
     const lista = state.config[sec.key] || [];
     const itemsHtml = lista.length === 0
       ? '<div class="empty-state" style="padding:var(--c-spacing-5)">Sin elementos</div>'
-      : lista.map((nombre, idx) =>
-          '<div style="display:flex;align-items:center;justify-content:space-between;padding:var(--c-spacing-3) var(--c-spacing-4);border-bottom:1px solid var(--c-color-border-subtle)">' +
+      : lista.map((nombre, idx) => {
+          const esPrimero = idx === 0;
+          const esUltimo = idx === lista.length - 1;
+          const btnArriba = '<button class="kebab" type="button" data-mover="' + escAttr(sec.key) + '" data-idx="' + idx + '" data-dir="up" title="Subir" ' + (esPrimero ? 'disabled style="opacity:0.3;cursor:default" ' : '') + '>&#9650;</button>';
+          const btnAbajo = '<button class="kebab" type="button" data-mover="' + escAttr(sec.key) + '" data-idx="' + idx + '" data-dir="down" title="Bajar" ' + (esUltimo ? 'disabled style="opacity:0.3;cursor:default" ' : '') + '>&#9660;</button>';
+          return '<div style="display:flex;align-items:center;justify-content:space-between;padding:var(--c-spacing-3) var(--c-spacing-4);border-bottom:1px solid var(--c-color-border-subtle)">' +
             '<div style="display:flex;align-items:center;gap:var(--c-spacing-3)">' +
+              '<div style="display:flex;flex-direction:column;gap:2px">' + btnArriba + btnAbajo + '</div>' +
               '<span style="display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--c-color-fill-primary-subtle);color:var(--c-color-text-primary);font-size:11px;font-weight:700;align-items:center;justify-content:center">' + (idx + 1) + '</span>' +
               '<strong style="color:var(--c-color-text-strong)">' + esc(nombre) + '</strong>' +
             '</div>' +
@@ -33,8 +38,8 @@ export function renderCatalogos(container) {
               '<button class="btn btn--ghost btn--small" data-editar="' + escAttr(sec.key) + '" data-nombre="' + escAttr(nombre) + '" title="Renombrar">' + icons.edit + ' Editar</button>' +
               '<button class="btn btn--ghost btn--small" data-eliminar="' + escAttr(sec.key) + '" data-nombre="' + escAttr(nombre) + '" title="Eliminar" style="color:var(--c-color-text-error)">' + icons.trash + ' Eliminar</button>' +
             '</div>' +
-          '</div>'
-        ).join('');
+          '</div>';
+        }).join('');
 
     return '<div class="card" style="padding:0;overflow:hidden;margin-bottom:var(--c-spacing-4)">' +
       '<div style="display:flex;align-items:center;justify-content:space-between;padding:var(--c-spacing-4);border-bottom:1px solid var(--c-color-border-subtle);background:var(--c-color-surface-neutral-subtle);flex-wrap:wrap;gap:var(--c-spacing-3)">' +
@@ -70,6 +75,31 @@ export function renderCatalogos(container) {
   container.querySelectorAll('[data-eliminar]').forEach(btn => {
     btn.addEventListener('click', () => eliminarItem(btn.dataset.eliminar, btn.dataset.nombre, container));
   });
+
+  // Wire: mover arriba/abajo
+  container.querySelectorAll('[data-mover]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      moverItem(btn.dataset.mover, Number(btn.dataset.idx), btn.dataset.dir, container);
+    });
+  });
+}
+
+async function moverItem(key, idx, dir, container) {
+  const state = getState();
+  const lista = (state.config[key] || []).slice();
+  const nuevoIdx = dir === 'up' ? idx - 1 : idx + 1;
+  if (nuevoIdx < 0 || nuevoIdx >= lista.length) return;
+  const tmp = lista[idx];
+  lista[idx] = lista[nuevoIdx];
+  lista[nuevoIdx] = tmp;
+  state.config[key] = lista;
+  try {
+    await saveConfig('Reordenar ' + key);
+    renderCatalogos(container);
+  } catch (err) {
+    showToast('Error: ' + err.message, 'error');
+  }
 }
 
 function getSeccion(key) {
