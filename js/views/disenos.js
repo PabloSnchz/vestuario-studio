@@ -181,7 +181,7 @@ function abrirFormDiseno(disenoId, container) {
   const tematicasSugeridas = state.config.tematicas || [];
 
   const imgPreview = d.imagen
-    ? '<img id="f-imagen-preview" src="' + escAttr(d.imagen) + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;">'
+    ? '<img id="f-imagen-preview" src="' + escAttr(d.imagen) + '" alt="" style="max-width:100%;max-height:180px;object-fit:contain;">'
     : '<span id="f-imagen-preview-empty" class="text-caption" style="color:var(--c-color-text-subtle)">Sin imagen</span>';
 
   openModal(
@@ -221,7 +221,7 @@ function abrirFormDiseno(disenoId, container) {
 
       '<div class="text-caption" style="margin-top:8px">Imagen del diseno</div>' +
       '<div style="display:flex;gap:var(--c-spacing-3);align-items:flex-start">' +
-        '<div style="width:120px;height:120px;background:var(--c-color-surface-neutral-subtle);border-radius:var(--c-border-radius-small);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:var(--c-spacing-2);flex-shrink:0">' +
+        '<div style="width:180px;height:180px;background:var(--c-color-surface-neutral-subtle);border-radius:var(--c-border-radius-small);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:var(--c-spacing-2);flex-shrink:0">' +
           imgPreview +
         '</div>' +
         '<div style="flex:1;display:flex;flex-direction:column;gap:var(--c-spacing-2)">' +
@@ -277,7 +277,7 @@ function abrirFormDiseno(disenoId, container) {
 
     // Preview local
     const localUrl = URL.createObjectURL(file);
-    previewWrap.innerHTML = '<img src="' + localUrl + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;">';
+    previewWrap.innerHTML = '<img src="' + localUrl + '" alt="" style="max-width:100%;max-height:180px;object-fit:contain;">';
 
     status.textContent = 'Subiendo...';
     status.style.color = 'var(--c-color-text-info)';
