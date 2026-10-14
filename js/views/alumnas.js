@@ -10,6 +10,7 @@ import { setFab, openModal, closeModal, showToast } from '../ui.js';
 import { descargarPlantilla, abrirImportador } from '../importar.js';
 import { abrirAsignador } from '../asignar.js';
 import { abrirInactivador } from '../inactivar.js';
+import { abrirModoEdicion } from '../batch.js';
 
 const filtros = { grupo: '', subgrupo: '', estado: '', q: '', verInactivas: false };
 
@@ -61,6 +62,7 @@ export function renderAlumnas(container) {
         '<button class="btn btn--secondary btn--small" type="button" data-importar title="Importar alumnas desde Excel">Importar Excel</button>' +
         '<button class="btn btn--secondary btn--small" type="button" data-asignar title="Asignar disenos a alumnas por grupo">Asignar disenos</button>' +
         '<button class="btn btn--ghost btn--small" type="button" data-inactivar title="Inactivar alumnas por grupo">Inactivar alumnas</button>' +
+        '<button class="btn btn--primary btn--small" type="button" data-modo-edicion title="Editar por lote: activa/inactiva, grupo, subgrupo, precio y altas nuevas">Modo edicion</button>' +
         '<button class="btn btn--ghost btn--small" type="button" data-limpiar title="Quitar todos los filtros">Limpiar filtros</button>' +
       '</div>' +
     '</div>' +
@@ -182,7 +184,9 @@ function wire(container) {
   if (btnAsignar) btnAsignar.addEventListener('click', () => abrirAsignador(() => renderAlumnas(container)));
 
   const btnInactivar = container.querySelector('[data-inactivar]');
+  const btnModoEdicion = container.querySelector('[data-modo-edicion]');
   if (btnInactivar) btnInactivar.addEventListener('click', () => abrirInactivador(() => renderAlumnas(container)));
+  if (btnModoEdicion) btnModoEdicion.addEventListener('click', () => abrirModoEdicion(() => renderAlumnas(container)));
 
   wireRows(container);
 }
