@@ -9,7 +9,7 @@
     "precio_base": 70000,
     "imagen": "assets/disenos/babys-sol.png",
     "materiales": "Vestido dorado con falda acampanada. Mangas largas media campana de gasa/muselina. Escote y hombros con cuerina o tela armada dorada. Estampas en DTF textil de soles.",
-    "costo": 0
+    "costo": 10000
   },
   {
     "id": "dis_kids_sol",
