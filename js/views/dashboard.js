@@ -11,7 +11,7 @@ export function renderDashboard(container) {
   const state = getState();
   const participantes = getParticipantesEvento();
 
-  const alumnasActivas = state.alumnas.filter((a) => a.activa_global !== false).length;
+  const alumnasActivas = participantes.length;
   const disenosTotal = state.disenos.length;
   const eventosTotal = (state.config && state.config.eventos) ? state.config.eventos.length : 0;
 
@@ -37,7 +37,7 @@ export function renderDashboard(container) {
         icono: 'usersLg',
         titulo: 'Alumnas',
         valor: alumnasActivas,
-        meta: 'activas en el sistema',
+        meta: 'participan en este evento',
         badge: participantes.length + ' en evento',
         color: 'var(--c-color-fill-info)',
       }) +

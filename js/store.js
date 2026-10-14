@@ -105,7 +105,12 @@ export function calcularEstadoPago(participante) {
   return { estado: 'sin_pago', pagado: 0, debe: aPagar, aPagar };
 }
 
-export function generarId(prefijo) {
+export function getAlumnasFueraDelEvento() {
+  if (!state.eventoActivo) return state.alumnas || [];
+  const idsEnEvento = new Set((state.eventoActivo.participantes || []).map(p => p.alumna_id));
+  return (state.alumnas || []).filter(a => !idsEnEvento.has(a.id));
+}
+
   const rand = Math.random().toString(36).slice(2, 8);
   return `${prefijo}_${Date.now().toString(36)}_${rand}`;
 }
