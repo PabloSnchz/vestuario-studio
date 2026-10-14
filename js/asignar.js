@@ -79,7 +79,7 @@ function renderModal() {
         '</span>' +
       '</div>' +
       '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
-        '<label class="field"><span class="field__label">Diseno a asignar</span>' +
+        '<label class="field"><span class="field__label">Diseño a asignar</span>' +
           '<select class="input input--select" data-grupo="' + escAttr(g) + '" data-rol="diseno">' +
             disenosGrupo.map(d =>
               '<option value="' + escAttr(d.id) + '"' + (d.id === disenoDefault ? ' selected' : '') + '>' +
