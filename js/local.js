@@ -70,3 +70,7 @@ export async function actualizarApp() {
   const res = await fetch(`${API_BASE}/update`, { method: 'POST' });
   return res.json();
 }
+export async function checkUpdate() {
+  const res = await fetch(`${API_BASE}/check-update`, { method: 'POST' });
+  return res.json();
+}

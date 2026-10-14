@@ -4,7 +4,7 @@
 
 import { loadConfig, loadAll, getState, subscribe } from './store.js';
 import { hasToken, setToken, writeJSON, ES_MODO_LOCAL } from './motor.js';
-import { getLocalStatus, hacerBackup, actualizarApp } from './local.js';
+import { getLocalStatus, hacerBackup, actualizarApp, checkUpdate } from './local.js';
 import { showToast, openModal, closeModal } from './ui.js';
 import { icons } from './icons.js';
 
@@ -148,6 +148,29 @@ subscribe(() => {
   cargarEventos();
 });
 
+async function chequearActualizacion() {
+  const btnActualizar = document.getElementById('btn-actualizar');
+  if (!btnActualizar) return;
+  try {
+    const r = await checkUpdate();
+    if (r && r.ok && r.hayCambios) {
+      btnActualizar.classList.remove('btn--ghost');
+      btnActualizar.classList.add('btn--primary');
+      btnActualizar.innerHTML = 'Actualizar <span class="badge badge--caution" style="margin-left:6px">' + r.pendientes + '</span>';
+      btnActualizar.title = r.ultimoMensaje
+        ? 'Nueva version disponible: ' + r.ultimoMensaje
+        : 'Nueva version disponible';
+    } else {
+      btnActualizar.classList.remove('btn--primary');
+      btnActualizar.classList.add('btn--ghost');
+      btnActualizar.textContent = 'Actualizar';
+      btnActualizar.title = 'Bajar la ultima version del codigo desde GitHub';
+    }
+  } catch (e) {
+    // Silencioso: si falla (offline, etc), no hacemos nada
+  }
+}
+
 async function init() {
   pintarIconos();
 
@@ -158,11 +181,17 @@ async function init() {
     const btnActualizar = document.getElementById('btn-actualizar');
     if (btnActualizar) {
       btnActualizar.style.display = 'inline-flex';
+
+      // Chequear al iniciar (despues de 1 seg para no bloquear)
+      setTimeout(chequearActualizacion, 1000);
+
+      // Y cada 5 minutos
+      setInterval(chequearActualizacion, 5 * 60 * 1000);
       btnActualizar.addEventListener('click', async () => {
         const ok = confirm('Bajar la ultima version del codigo desde GitHub? Se va a recargar la pagina.');
         if (!ok) return;
         btnActualizar.disabled = true;
-        btnActualizar.textContent = 'Actualizando...';
+        btnActualizar.innerHTML = 'Actualizando...';
         try {
           const r = await actualizarApp();
           if (r.ok) {
@@ -176,7 +205,7 @@ async function init() {
           } else {
             showToast('Error: ' + (r.error || 'desconocido'), 'error');
             btnActualizar.disabled = false;
-            btnActualizar.textContent = 'Actualizar';
+            chequearActualizacion();
           }
         } catch (e) {
           showToast('Error: ' + e.message, 'error');

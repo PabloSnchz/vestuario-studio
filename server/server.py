@@ -117,6 +117,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._update()
             return
 
+        if parsed.path == '/api/check-update':
+            self._check_update()
+            return
+
         self._json_response({'error': 'No encontrado'}, 404)
 
     def _read(self, rel_path):
@@ -180,6 +184,42 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             })
         except Exception as e:
             self._json_response({'ok': False, 'error': str(e)}, 500)
+
+    def _check_update(self):
+        try:
+            # Fetch silencioso de origin
+            subprocess.run(
+                ['git', 'fetch', 'origin', 'main'],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=30
+            )
+            # Contar commits de diferencia
+            result = subprocess.run(
+                ['git', 'rev-list', '--count', 'HEAD..origin/main'],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=10
+            )
+            pendientes = 0
+            try:
+                pendientes = int(result.stdout.strip())
+            except Exception:
+                pendientes = 0
+
+            # Traer el mensaje del ultimo commit remoto
+            ultimo = ''
+            if pendientes > 0:
+                log = subprocess.run(
+                    ['git', 'log', 'origin/main', '-1', '--format=%s'],
+                    cwd=str(ROOT), capture_output=True, text=True, timeout=5
+                )
+                ultimo = log.stdout.strip()
+
+            self._json_response({
+                'ok': True,
+                'hayCambios': pendientes > 0,
+                'pendientes': pendientes,
+                'ultimoMensaje': ultimo,
+            })
+        except Exception as e:
+            self._json_response({'ok': False, 'error': str(e), 'hayCambios': False, 'pendientes': 0}, 200)
 
     def _update(self):
         try:
