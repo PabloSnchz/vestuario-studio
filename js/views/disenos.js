@@ -10,7 +10,7 @@ import { icons } from '../icons.js';
 const filtros = { tematica: '', grupo: '' };
 
 export function renderDisenos(container) {
-  setFab('Nuevo diseno', () => abrirFormDiseno(null, container), icons.plus);
+  setFab('Nuevo diseño', () => abrirFormDiseno(null, container), icons.plus);
 
   const state = getState();
   const disenos = state.disenos || [];
