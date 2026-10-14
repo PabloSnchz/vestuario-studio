@@ -1,5 +1,5 @@
 // ============================================================
-// app.js - Punto de entrada: router, token, selector de evento
+// app.js - Punto de entrada: router, token, evento y tema
 // ============================================================
 
 import { loadConfig, loadAll, getState, subscribe } from './store.js';
@@ -25,6 +25,7 @@ const routes = {
 const viewContainer = document.getElementById('view-container');
 const breadcrumbsList = document.getElementById('breadcrumbs-list');
 const eventoSelector = document.getElementById('evento-selector');
+const temaSelector = document.getElementById('tema-selector');
 const btnToken = document.getElementById('btn-token');
 const drawerLinks = document.querySelectorAll('.app-drawer__link');
 
@@ -44,6 +45,25 @@ function navigate() {
 }
 
 window.addEventListener('hashchange', navigate);
+
+function aplicarTema(tema) {
+  document.documentElement.setAttribute('data-theme', tema || 'cereza');
+}
+
+async function cambiarTema(tema) {
+  const state = getState();
+  if (!tema || tema === state.config.tema) return;
+  const cfg = Object.assign({}, state.config, { tema: tema });
+  try {
+    await writeJSON(state.repo, 'data/config.json', cfg, 'Cambiar tema a ' + tema);
+    state.config.tema = tema;
+    aplicarTema(tema);
+    showToast('Tema cambiado', 'success');
+  } catch (e) {
+    showToast('Error: ' + e.message, 'error');
+    if (temaSelector) temaSelector.value = state.config.tema || 'cereza';
+  }
+}
 
 function openTokenModal() {
   const current = hasToken() ? '********' : '';
@@ -95,7 +115,7 @@ function cargarEventos() {
 async function cambiarEvento(id) {
   const state = getState();
   if (!id || id === state.config.evento_activo) return;
-  const cfg = { ...state.config, evento_activo: id };
+  const cfg = Object.assign({}, state.config, { evento_activo: id });
   try {
     await writeJSON(state.repo, 'data/config.json', cfg, 'Cambiar evento activo a ' + id);
     showToast('Evento cambiado', 'success');
@@ -116,9 +136,15 @@ subscribe(() => {
 async function init() {
   btnToken.addEventListener('click', openTokenModal);
   eventoSelector.addEventListener('change', (e) => cambiarEvento(e.target.value));
+  if (temaSelector) temaSelector.addEventListener('change', (e) => cambiarTema(e.target.value));
+
   if (!hasToken()) setTimeout(openTokenModal, 300);
+
   try {
     await loadConfig();
+    const t = (getState().config && getState().config.tema) || 'cereza';
+    aplicarTema(t);
+    if (temaSelector) temaSelector.value = t;
     await loadAll();
   } catch (e) {
     viewContainer.innerHTML = '<div class="alert alert--error">Error al cargar datos: ' + e.message + '</div>';

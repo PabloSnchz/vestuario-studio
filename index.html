@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
 
@@ -21,6 +22,13 @@
       <span class="app-header__subtitle">Estudio de Arte Chantal Aiello</span>
     </div>
     <div class="app-header__actions">
+      <label class="app-header__event-label" for="tema-selector">Tema</label>
+      <select id="tema-selector" class="input input--select" aria-label="Tema visual" style="min-width:130px">
+        <option value="cereza">Cereza</option>
+        <option value="oliva">Oliva</option>
+        <option value="terracota">Terracota</option>
+        <option value="grafito">Grafito</option>
+      </select>
       <label class="app-header__event-label" for="evento-selector">Evento activo</label>
       <select id="evento-selector" class="input input--select" aria-label="Seleccionar evento activo"></select>
       <button id="btn-token" class="btn btn--ghost btn--small" type="button">Configurar token</button>

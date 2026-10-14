@@ -106,7 +106,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .app-drawer__link.is-active {
   background: var(--c-color-fill-primary-subtle);
-  color: var(--c-color-text-error);
+  color: var(--c-color-text-primary);
 }
 
 .app-main {

@@ -1,0 +1,70 @@
+/* ============================================================
+   themes.css - Temas seleccionables
+   Cada tema overridea solo las variables "primary" y el fondo.
+   El resto del Design System (tipo, spacing, success, error, etc.)
+   queda intacto.
+   ============================================================ */
+
+/* CEREZA - rojo */
+[data-theme="cereza"] {
+  --c-color-fill-primary:        #d71920;
+  --c-color-fill-primary-hover:  #b6040b;
+  --c-color-fill-primary-pressed:#810f13;
+  --c-color-fill-primary-subtle: #fbe8e9;
+  --c-color-border-primary:         #d71920;
+  --c-color-border-primary-strong:  #b6040b;
+  --c-color-border-primary-subtle:  #f3babc;
+  --c-color-border-primary-hover:   #df474d;
+  --c-color-border-primary-selected:#810f13;
+  --c-color-text-primary:        #b6040b;
+  --c-color-bg:                  #fafafa;
+  --c-shadow-focus-regular: 0 0 0 2px #ffffff, 0 0 0 4px #d71920;
+}
+
+/* OLIVA - verde elegante */
+[data-theme="oliva"] {
+  --c-color-fill-primary:        #5f6e4a;
+  --c-color-fill-primary-hover:  #4d5a3c;
+  --c-color-fill-primary-pressed:#3b462e;
+  --c-color-fill-primary-subtle: #eef1e9;
+  --c-color-border-primary:         #5f6e4a;
+  --c-color-border-primary-strong:  #4d5a3c;
+  --c-color-border-primary-subtle:  #b5c19f;
+  --c-color-border-primary-hover:   #7a8b62;
+  --c-color-border-primary-selected:#3b462e;
+  --c-color-text-primary:        #4d5a3c;
+  --c-color-bg:                  #f7f5f0;
+  --c-shadow-focus-regular: 0 0 0 2px #ffffff, 0 0 0 4px #5f6e4a;
+}
+
+/* TERRACOTA - calido textil */
+[data-theme="terracota"] {
+  --c-color-fill-primary:        #a35a3f;
+  --c-color-fill-primary-hover:  #8a4a32;
+  --c-color-fill-primary-pressed:#6f3a25;
+  --c-color-fill-primary-subtle: #f7ebe4;
+  --c-color-border-primary:         #a35a3f;
+  --c-color-border-primary-strong:  #8a4a32;
+  --c-color-border-primary-subtle:  #d9b3a0;
+  --c-color-border-primary-hover:   #ba6d4f;
+  --c-color-border-primary-selected:#6f3a25;
+  --c-color-text-primary:        #8a4a32;
+  --c-color-bg:                  #faf6f2;
+  --c-shadow-focus-regular: 0 0 0 2px #ffffff, 0 0 0 4px #a35a3f;
+}
+
+/* GRAFITO - minimalista */
+[data-theme="grafito"] {
+  --c-color-fill-primary:        #3a3d44;
+  --c-color-fill-primary-hover:  #2a2c32;
+  --c-color-fill-primary-pressed:#1d2023;
+  --c-color-fill-primary-subtle: #ecedef;
+  --c-color-border-primary:         #3a3d44;
+  --c-color-border-primary-strong:  #2a2c32;
+  --c-color-border-primary-subtle:  #b3b5ba;
+  --c-color-border-primary-hover:   #55585f;
+  --c-color-border-primary-selected:#1d2023;
+  --c-color-text-primary:        #3a3d44;
+  --c-color-bg:                  #f5f5f3;
+  --c-shadow-focus-regular: 0 0 0 2px #ffffff, 0 0 0 4px #3a3d44;
+}
