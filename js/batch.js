@@ -12,6 +12,7 @@ let borrador = null;
 let dirty = false;
 let overlayEl = null;
 let _onClose = null;
+let filtroGrupo = '';
 
 export function abrirModoEdicion(onClose) {
   const state = getState();
@@ -91,6 +92,8 @@ function renderOverlay() {
         'Podes agregar alumnas nuevas con el boton <strong>+ Agregar alumna</strong> al pie de la lista.' +
       '</div>' +
 
+      '<div id="batch-chips" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"></div>' +
+
       '<div class="table-wrapper" style="background:var(--c-color-surface);border-radius:8px">' +
         '<table class="table" style="width:100%">' +
           '<thead>' +
@@ -121,12 +124,17 @@ function renderOverlay() {
 function renderTbody() {
   const tbody = document.getElementById('batch-tbody');
   if (!tbody) return;
+  renderChips();
 
   const state = getState();
   const grupos = state.config.grupos || [];
   const subgrupos = state.config.subgrupos || [];
 
-  const filas = borrador.participantes.map((p, idx) => {
+  const participantesFiltrados = filtroGrupo
+    ? borrador.participantes.filter(p => p.grupo === filtroGrupo)
+    : borrador.participantes;
+
+  const filas = participantesFiltrados.map((p) => {
     const al = borrador.alumnas.find(a => a.id === p.alumna_id);
     const nombre = al ? al.nombre : '(sin nombre)';
     const activa = p.activa_en_evento !== false;
@@ -134,14 +142,15 @@ function renderTbody() {
     const grupoOpts = grupos.map(g => '<option' + (g === p.grupo ? ' selected' : '') + '>' + esc(g) + '</option>').join('');
     const subOpts = subgrupos.map(s => '<option' + (s === p.subgrupo ? ' selected' : '') + '>' + esc(s) + '</option>').join('');
 
-    return '<tr style="' + (activa ? '' : 'opacity:0.5;') + '" data-idx="' + idx + '">' +
+    const realIdx = borrador.participantes.indexOf(p);
+    return '<tr style="' + (activa ? '' : 'opacity:0.5;') + '" data-idx="' + realIdx + '">' +
       '<td style="text-align:center">' +
-        '<input type="checkbox" data-batch-activa="' + idx + '" ' + (activa ? 'checked' : '') + ' style="width:18px;height:18px;cursor:pointer">' +
+        '<input type="checkbox" data-batch-activa="' + realIdx + '" ' + (activa ? 'checked' : '') + ' style="width:18px;height:18px;cursor:pointer">' +
       '</td>' +
       '<td>' + esc(nombre) + '</td>' +
-      '<td><select class="input input--select" data-batch-grupo="' + idx + '" style="height:32px;font-size:14px">' + grupoOpts + '</select></td>' +
-      '<td><select class="input input--select" data-batch-subgrupo="' + idx + '" style="height:32px;font-size:14px">' + subOpts + '</select></td>' +
-      '<td><input type="number" class="input" data-batch-precio="' + idx + '" value="' + (p.precio_final || 0) + '" style="height:32px;font-size:14px"></td>' +
+      '<td><select class="input input--select" data-batch-grupo="' + realIdx + '" style="height:32px;font-size:14px">' + grupoOpts + '</select></td>' +
+      '<td><select class="input input--select" data-batch-subgrupo="' + realIdx + '" style="height:32px;font-size:14px">' + subOpts + '</select></td>' +
+      '<td><input type="number" class="input" data-batch-precio="' + realIdx + '" value="' + (p.precio_final || 0) + '" style="height:32px;font-size:14px"></td>' +
     '</tr>';
   }).join('');
 
@@ -164,31 +173,34 @@ function renderTbody() {
 
   tbody.querySelectorAll('[data-batch-activa]').forEach(el => {
     el.addEventListener('change', () => {
-      const idx = Number(el.dataset.batchActiva);
-      borrador.participantes[idx].activa_en_evento = el.checked;
+      const p = borrador.participantes[Number(el.dataset.batchActiva)];
+      if (!p) return;
+      p.activa_en_evento = el.checked;
       marcarDirty();
       renderTbody();
     });
   });
   tbody.querySelectorAll('[data-batch-grupo]').forEach(el => {
     el.addEventListener('change', () => {
-      const idx = Number(el.dataset.batchGrupo);
-      borrador.participantes[idx].grupo = el.value;
+      const p = borrador.participantes[Number(el.dataset.batchGrupo)];
+      if (!p) return;
+      p.grupo = el.value;
       marcarDirty();
     });
   });
   tbody.querySelectorAll('[data-batch-subgrupo]').forEach(el => {
     el.addEventListener('change', () => {
-      const idx = Number(el.dataset.batchSubgrupo);
-      borrador.participantes[idx].subgrupo = el.value;
+      const p = borrador.participantes[Number(el.dataset.batchSubgrupo)];
+      if (!p) return;
+      p.subgrupo = el.value;
       marcarDirty();
     });
   });
   tbody.querySelectorAll('[data-batch-precio]').forEach(el => {
     el.addEventListener('input', () => {
-      const idx = Number(el.dataset.batchPrecio);
-      borrador.participantes[idx].precio_final = Number(el.value) || 0;
-      const p = borrador.participantes[idx];
+      const p = borrador.participantes[Number(el.dataset.batchPrecio)];
+      if (!p) return;
+      p.precio_final = Number(el.value) || 0;
       const total = p.precio_final - (p.bonificacion || 0);
       const mitad = Math.round(total / 2);
       if (p.cuotas && p.cuotas.length >= 2) {
@@ -232,6 +244,33 @@ function renderTbody() {
       const idx = Number(el.dataset.altaQuitar);
       borrador.altas.splice(idx, 1);
       marcarDirty();
+      renderTbody();
+    });
+  });
+}
+
+function renderChips() {
+  const cont = document.getElementById('batch-chips');
+  if (!cont) return;
+  const state = getState();
+  const grupos = state.config.grupos || [];
+  const contadores = {};
+  for (const p of borrador.participantes) {
+    const g = p.grupo || 'Sin grupo';
+    contadores[g] = (contadores[g] || 0) + 1;
+  }
+  const chipTodos = '<button class="chip' + (filtroGrupo === '' ? ' is-selected' : '') + '" data-chip-filtro="" type="button">Todos <strong>(' + borrador.participantes.length + ')</strong></button>';
+  const chips = grupos.map(g => {
+    const n = contadores[g] || 0;
+    if (n === 0) return '';
+    const activo = filtroGrupo === g;
+    return '<button class="chip' + (activo ? ' is-selected' : '') + '" data-chip-filtro="' + escAttr(g) + '" type="button">' + esc(g) + ' <strong>(' + n + ')</strong></button>';
+  }).join('');
+  cont.innerHTML = chipTodos + chips;
+  cont.querySelectorAll('[data-chip-filtro]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtroGrupo = btn.dataset.chipFiltro;
+      renderChips();
       renderTbody();
     });
   });
