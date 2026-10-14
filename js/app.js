@@ -20,7 +20,7 @@ const TEMAS_VALIDOS = ['cereza', 'oliva', 'terracota', 'grafito'];
 const routes = {
   dashboard: { render: renderDashboard, title: 'Dashboard' },
   alumnas:   { render: renderAlumnas,   title: 'Alumnas' },
-  disenos:   { render: renderDisenos,   title: 'Disenos' },
+  disenos:   { render: renderDisenos,   title: 'Diseños' },
   eventos:   { render: renderEventos,   title: 'Eventos' },
   pagos:     { render: renderPagos,     title: 'Pagos' },
   reportes:  { render: renderReportes,  title: 'Reportes' },
