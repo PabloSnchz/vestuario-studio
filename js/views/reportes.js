@@ -125,7 +125,7 @@ export function renderReportes(container) {
         icono: 'trendingLg',
         titulo: 'Rentabilidad',
         subtitulo: 'Facturacion menos costos',
-        color: 'var(--c-color-fill-neutral-strong)',
+        color: 'var(--c-color-fill-accent)',
         principal: '$' + gananciaTotal.toLocaleString('es-AR'),
         secundaria: '$' + facturacionTotal.toLocaleString('es-AR') + ' facturado - $' + costoTotal.toLocaleString('es-AR') + ' costo (' + pctMargen + '%)',
         progreso: pctMargen,

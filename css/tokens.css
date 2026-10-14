@@ -142,6 +142,15 @@
   --c-color-fill-error-pressed: #810f13;
   --c-color-fill-error-subtle: #fbe8e9;
 
+  /* Violeta (acento para rentabilidad) */
+  --c-color-fill-accent:         #8b5cf6;
+  --c-color-fill-accent-hover:   #7c3aed;
+  --c-color-fill-accent-pressed: #6d28d9;
+  --c-color-fill-accent-subtle:  #ede9fe;
+  --c-color-text-accent:         #6d28d9;
+  --c-color-border-accent:       #8b5cf6;
+  --c-color-border-accent-subtle:#ddd6fe;
+
   --c-color-text-strong: #272a2f;
   --c-color-text: #4e555e;
   --c-color-text-hover: #3a4046;
