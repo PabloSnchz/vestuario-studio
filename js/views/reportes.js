@@ -42,6 +42,17 @@ export function renderReportes(container) {
   const conDiseno = total - sinDiseno.length;
   const pctDiseno = total > 0 ? Math.round(conDiseno / total * 100) : 0;
 
+  // ===== Rentabilidad =====
+  let facturacionTotal = 0;
+  let costoTotal = 0;
+  const disenos = state.disenos || [];
+  for (const p of participantes) {
+    facturacionTotal += Number(p.precio_final || 0) - Number(p.bonificacion || 0);
+    const d = disenos.find(x => x.id === p.diseno_id);
+    if (d) costoTotal += Number(d.costo || 0);
+  }
+  const gananciaTotal = facturacionTotal - costoTotal;
+
   const c1 = participantes.filter(p => p.cuotas && p.cuotas[0] && p.cuotas[0].pagado).length;
   const c2 = participantes.filter(p => p.cuotas && p.cuotas[1] && p.cuotas[1].pagado).length;
   const totalCuotas = total * 2;
@@ -77,7 +88,7 @@ export function renderReportes(container) {
     '</div>' +
 
     '<h2 class="text-titlelarge" style="margin-top:var(--c-spacing-6)">Estado operativo</h2>' +
-    '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr)">' +
+    '<div class="cards-grid" style="grid-template-columns:repeat(4,1fr)">' +
       cardReporte({
         tipo: 'medidas',
         icono: 'rulerLg',
@@ -121,6 +132,7 @@ export function renderReportes(container) {
       if (tipo === 'medidas')  renderMedidas(detalle);
       if (tipo === 'disenos')  renderDisenos(detalle);
       if (tipo === 'cuotas')   renderCuotas(detalle);
+      if (tipo === 'rentabilidad') renderRentabilidad(detalle);
       detalle.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
@@ -368,6 +380,92 @@ function renderCuotas(container) {
     '</table></div>';
 }
 
+function renderRentabilidad(container) {
+  const state = getState();
+  const participantes = getParticipantesEvento();
+  const disenos = state.disenos || [];
+
+  // Agrupar por diseno
+  const porDiseno = {};
+  for (const p of participantes) {
+    const d = disenos.find(x => x.id === p.diseno_id);
+    const key = d ? d.id : '__sin_diseno__';
+    if (!porDiseno[key]) {
+      porDiseno[key] = {
+        nombre: d ? d.nombre : '(sin diseno asignado)',
+        precio: d ? Number(d.precio_base || 0) : 0,
+        costo: d ? Number(d.costo || 0) : 0,
+        cantidad: 0,
+        facturado: 0,
+        costoTotal: 0,
+      };
+    }
+    porDiseno[key].cantidad += 1;
+    porDiseno[key].facturado += Number(p.precio_final || 0) - Number(p.bonificacion || 0);
+    porDiseno[key].costoTotal += d ? Number(d.costo || 0) : 0;
+  }
+
+  // Totales
+  let facturacionTotal = 0;
+  let costoTotal = 0;
+  let gananciaTotal = 0;
+  for (const v of Object.values(porDiseno)) {
+    facturacionTotal += v.facturado;
+    costoTotal += v.costoTotal;
+    gananciaTotal += (v.facturado - v.costoTotal);
+  }
+  const pctMargen = facturacionTotal > 0 ? Math.round(gananciaTotal / facturacionTotal * 100) : 0;
+
+  const filas = Object.entries(porDiseno)
+    .sort((a, b) => (b[1].facturado - b[1].costoTotal) - (a[1].facturado - a[1].costoTotal))
+    .map(([id, v]) => {
+      const margen = v.facturado - v.costoTotal;
+      const pct = v.facturado > 0 ? Math.round(margen / v.facturado * 100) : 0;
+      const color = margen >= 0 ? 'var(--c-color-text-success)' : 'var(--c-color-text-error)';
+      return '<tr>' +
+        '<td>' + esc(v.nombre) + '</td>' +
+        '<td>' + v.cantidad + '</td>' +
+        '<td>$' + v.facturado.toLocaleString('es-AR') + '</td>' +
+        '<td>$' + v.costoTotal.toLocaleString('es-AR') + '</td>' +
+        '<td style="color:' + color + ';font-weight:700">$' + margen.toLocaleString('es-AR') + '</td>' +
+        '<td style="color:' + color + '">' + pct + '%</td>' +
+      '</tr>';
+    }).join('');
+
+  container.innerHTML =
+    '<h2 class="text-headline5" style="margin-top:var(--c-spacing-5)">Rentabilidad por diseno</h2>' +
+    '<p class="text-bodysmall" style="color:var(--c-color-text-subtle)">' +
+      'Facturacion total: <strong>$' + facturacionTotal.toLocaleString('es-AR') + '</strong> &middot; ' +
+      'Costo total: <strong>$' + costoTotal.toLocaleString('es-AR') + '</strong> &middot; ' +
+      'Ganancia: <strong style="color:var(--c-color-text-success)">$' + gananciaTotal.toLocaleString('es-AR') + '</strong> (' + pctMargen + '%)' +
+    '</p>' +
+    '<div class="toolbar"><div></div><div class="toolbar__actions">' +
+      '<button class="btn btn--secondary btn--small" type="button" id="exp-rentabilidad">Exportar CSV</button>' +
+    '</div></div>' +
+    '<div class="table-wrapper"><table class="table">' +
+      '<thead><tr>' +
+        '<th>Diseno</th><th>Alumnas</th><th>Facturado</th><th>Costo</th><th>Ganancia</th><th>Margen</th>' +
+      '</tr></thead>' +
+      '<tbody>' +
+        (Object.keys(porDiseno).length === 0
+          ? '<tr><td colspan="6"><div class="empty-state">Sin datos</div></td></tr>'
+          : filas) +
+      '</tbody>' +
+    '</table></div>' +
+    '<div class="alert alert--info" style="margin-top:var(--c-spacing-4)">' +
+      'Los costos se cargan en cada diseno (boton Editar en la pantalla Disenos). ' +
+      'Si un diseno no tiene costo cargado, se cuenta como $0 y la ganancia aparece completa.' +
+    '</div>';
+
+  document.getElementById('exp-rentabilidad').addEventListener('click', () => {
+    const rows = Object.entries(porDiseno).map(([id, v]) => {
+      const margen = v.facturado - v.costoTotal;
+      const pct = v.facturado > 0 ? Math.round(margen / v.facturado * 100) : 0;
+      return [v.nombre, v.cantidad, v.facturado, v.costoTotal, margen, pct + '%'];
+    });
+    exportCSV('rentabilidad.csv', ['Diseno','Alumnas','Facturado','Costo','Ganancia','Margen'], rows);
+  });
+}
 function exportCSV(filename, headers, rows) {
   const csv = [headers, ...rows].map(r => r.map(cell => {
     const s = String(cell == null ? '' : cell);

@@ -74,7 +74,7 @@ export function renderDashboard(container) {
         href: '#/reportes',
         icono: 'chartLg',
         titulo: 'Reportes',
-        valor: 5,
+        valor: 6,
         meta: 'indicadores disponibles',
         color: 'var(--c-color-fill-warning)',
       }) +

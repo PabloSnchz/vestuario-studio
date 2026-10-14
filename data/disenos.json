@@ -8,7 +8,8 @@
         "tipologia":  "Vestido",
         "precio_base":  70000,
         "imagen":  "assets/disenos/babys-sol.png",
-        "materiales":  "Vestido dorado con falda acampanada. Mangas largas media campana de gasa/muselina. Escote y hombros con cuerina o tela armada dorada. Estampas en DTF textil de soles."
+        "materiales":  "Vestido dorado con falda acampanada. Mangas largas media campana de gasa/muselina. Escote y hombros con cuerina o tela armada dorada. Estampas en DTF textil de soles.",
+        "costo":  0
     },
     {
         "id":  "dis_kids_sol",
@@ -20,7 +21,8 @@
         "precio_base":  75000,
         "imagen":  "assets/disenos/kids-sol.png",
         "imagen_alt":  "assets/disenos/kids-sol-v2.png",
-        "materiales":  "Vestido blanco con detalles en dorado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina (blancas o doradas). Escote y hombros con cuerina o tela armada dorada. Estampas de soles en DTF textil."
+        "materiales":  "Vestido blanco con detalles en dorado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina (blancas o doradas). Escote y hombros con cuerina o tela armada dorada. Estampas de soles en DTF textil.",
+        "costo":  0
     },
     {
         "id":  "dis_kids_luna",
@@ -31,7 +33,8 @@
         "tipologia":  "Vestido",
         "precio_base":  75000,
         "imagen":  "assets/disenos/kids-luna.png",
-        "materiales":  "Vestido con recortes en azul y plateado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina azul. Escote y hombros con cuerina o tela armada plateada. Estampas de Luna y estrellas en DTF textil."
+        "materiales":  "Vestido con recortes en azul y plateado. Cintura en V, falda acampanada con vuelo. Mangas largas media campana de gasa/muselina azul. Escote y hombros con cuerina o tela armada plateada. Estampas de Luna y estrellas en DTF textil.",
+        "costo":  0
     },
     {
         "id":  "dis_preteens_sol",
@@ -42,7 +45,8 @@
         "tipologia":  "Vestido",
         "precio_base":  80000,
         "imagen":  "assets/disenos/preteens-sol.png",
-        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro.",
+        "costo":  0
     },
     {
         "id":  "dis_preteens_luna",
@@ -53,7 +57,8 @@
         "tipologia":  "Vestido",
         "precio_base":  80000,
         "imagen":  "assets/disenos/preteens-luna.png",
-        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro.",
+        "costo":  0
     },
     {
         "id":  "dis_adol_sol",
@@ -64,7 +69,8 @@
         "tipologia":  "Vestido",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-sol.png",
-        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral soles. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro.",
+        "costo":  0
     },
     {
         "id":  "dis_adol_luna",
@@ -75,7 +81,8 @@
         "tipologia":  "Vestido",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-luna.png",
-        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro."
+        "materiales":  "Vestido con recorte de tela sublimada estampa vitral noche/luna. Laterales en torso color negro. Tiras, faja y faldas laterales en cuerina/simil cuero negro.",
+        "costo":  0
     },
     {
         "id":  "dis_adol_masc_sol",
@@ -86,7 +93,8 @@
         "tipologia":  "Pantalon",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-masc-sol.png",
-        "materiales":  "Remera sin mangas con tela sublimada estampa vitral soles, con tiras de cuerina negras cruzadas sobre el torso y faldo irregular con faja de cuerina negra."
+        "materiales":  "Remera sin mangas con tela sublimada estampa vitral soles, con tiras de cuerina negras cruzadas sobre el torso y faldo irregular con faja de cuerina negra.",
+        "costo":  0
     },
     {
         "id":  "dis_adol_masc_luna",
@@ -97,6 +105,7 @@
         "tipologia":  "Pantalon",
         "precio_base":  85000,
         "imagen":  "assets/disenos/adol-masc-luna.png",
-        "materiales":  "Remera sin mangas con tela sublimada con estampa vitral noche luna, con tiras de cuerina negra cruzadas sobre el torso y faldo irregular con faja de cuerina negra."
+        "materiales":  "Remera sin mangas con tela sublimada con estampa vitral noche luna, con tiras de cuerina negra cruzadas sobre el torso y faldo irregular con faja de cuerina negra.",
+        "costo":  0
     }
 ]

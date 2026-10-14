@@ -171,7 +171,7 @@ function abrirFormDiseno(disenoId, container) {
   const state = getState();
   const esNuevo = !disenoId;
   const d = esNuevo
-    ? { nombre: '', tematica: '', grupo: '', subgrupo: 'Vestuario', tipologia: 'Vestido', precio_base: 0, imagen: '', materiales: '' }
+    ? { nombre: '', tematica: '', grupo: '', subgrupo: 'Vestuario', tipologia: 'Vestido', precio_base: 0, costo: 0, imagen: '', materiales: '' }
     : (state.disenos || []).find(x => x.id === disenoId);
   if (!d) return;
 
@@ -216,8 +216,13 @@ function abrirFormDiseno(disenoId, container) {
           '</select></label>' +
       '</div>' +
 
-      '<label class="field"><span class="field__label">Precio base</span>' +
-        '<input class="input" type="number" id="f-precio" value="' + (d.precio_base || 0) + '"></label>' +
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Precio de venta</span>' +
+          '<input class="input" type="number" id="f-precio" value="' + (d.precio_base || 0) + '"></label>' +
+        '<label class="field"><span class="field__label">Costo de fabricaci&oacute;n</span>' +
+          '<input class="input" type="number" id="f-costo" value="' + (d.costo || 0) + '"></label>' +
+      '</div>' +
+      '<div class="text-caption" id="f-margen-hint" style="margin-top:-8px;color:var(--c-color-text-subtle)"></div>' +
 
       '<div class="text-caption" style="margin-top:8px">Imagen del diseno</div>' +
       '<div style="display:flex;gap:var(--c-spacing-3);align-items:flex-start">' +
@@ -306,6 +311,21 @@ function abrirFormDiseno(disenoId, container) {
     }
   });
 
+  // Wire: recalcular margen en vivo
+  const inputPrecio = document.getElementById('f-precio');
+  const inputCosto = document.getElementById('f-costo');
+  const hintMargen = document.getElementById('f-margen-hint');
+  function calcularMargenHint() {
+    const p = Number(inputPrecio.value) || 0;
+    const c = Number(inputCosto.value) || 0;
+    const m = p - c;
+    const pct = p > 0 ? Math.round(m / p * 100) : 0;
+    hintMargen.textContent = 'Margen: $' + m.toLocaleString('es-AR') + ' (' + pct + '% del precio de venta)';
+    hintMargen.style.color = m >= 0 ? 'var(--c-color-text-success)' : 'var(--c-color-text-error)';
+  }
+  inputPrecio.addEventListener('input', calcularMargenHint);
+  inputCosto.addEventListener('input', calcularMargenHint);
+  calcularMargenHint();
   // Wire: guardar
   document.getElementById('f-guardar').addEventListener('click', async () => {
     const nombre = document.getElementById('f-nombre').value.trim();
@@ -318,6 +338,7 @@ function abrirFormDiseno(disenoId, container) {
       subgrupo: document.getElementById('f-subgrupo').value,
       tipologia: document.getElementById('f-tipologia').value,
       precio_base: Number(document.getElementById('f-precio').value) || 0,
+      costo: Number(document.getElementById('f-costo').value) || 0,
       imagen: document.getElementById('f-imagen').value.trim(),
       materiales: document.getElementById('f-materiales').value.trim(),
     };
