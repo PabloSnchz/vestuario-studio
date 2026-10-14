@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "evento_activo": "2026-diciembre",
   "grupos": [
-    "Kids",
     "Babys",
+    "Kids",
     "Pre Teens",
     "Adolescentes",
     "Juveniles"
