@@ -45,7 +45,7 @@ export function renderDashboard(container) {
       cardIcono({
         href: '#/disenos',
         icono: 'shirtLg',
-        titulo: 'Disenos',
+        titulo: 'Diseños',
         valor: disenosTotal,
         meta: 'cargados en el catalogo',
         color: 'var(--c-color-fill-primary)',
