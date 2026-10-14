@@ -13,6 +13,9 @@ import { renderEventos }   from './views/eventos.js';
 import { renderPagos }     from './views/pagos.js';
 import { renderReportes }  from './views/reportes.js';
 
+const TEMA_KEY = 'vestuario_studio_tema';
+const TEMAS_VALIDOS = ['cereza', 'oliva', 'terracota', 'grafito'];
+
 const routes = {
   dashboard: { render: renderDashboard, title: 'Dashboard' },
   alumnas:   { render: renderAlumnas,   title: 'Alumnas' },
@@ -46,23 +49,22 @@ function navigate() {
 
 window.addEventListener('hashchange', navigate);
 
+function temaGuardado() {
+  try {
+    const t = localStorage.getItem(TEMA_KEY);
+    if (t && TEMAS_VALIDOS.indexOf(t) !== -1) return t;
+  } catch (e) {}
+  return null;
+}
+
 function aplicarTema(tema) {
   document.documentElement.setAttribute('data-theme', tema || 'cereza');
 }
 
-async function cambiarTema(tema) {
-  const state = getState();
-  if (!tema || tema === state.config.tema) return;
-  const cfg = Object.assign({}, state.config, { tema: tema });
-  try {
-    await writeJSON(state.repo, 'data/config.json', cfg, 'Cambiar tema a ' + tema);
-    state.config.tema = tema;
-    aplicarTema(tema);
-    showToast('Tema cambiado', 'success');
-  } catch (e) {
-    showToast('Error: ' + e.message, 'error');
-    if (temaSelector) temaSelector.value = state.config.tema || 'cereza';
-  }
+function cambiarTema(tema) {
+  if (!tema || TEMAS_VALIDOS.indexOf(tema) === -1) return;
+  try { localStorage.setItem(TEMA_KEY, tema); } catch (e) {}
+  aplicarTema(tema);
 }
 
 function openTokenModal() {
@@ -142,7 +144,7 @@ async function init() {
 
   try {
     await loadConfig();
-    const t = (getState().config && getState().config.tema) || 'cereza';
+    const t = temaGuardado() || (getState().config && getState().config.tema) || 'cereza';
     aplicarTema(t);
     if (temaSelector) temaSelector.value = t;
     await loadAll();

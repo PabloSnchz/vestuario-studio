@@ -44,7 +44,6 @@ export function renderAlumnas(container) {
 
     '<div class="toolbar">' +
       '<div class="toolbar__filters">' +
-        sel('Grupo',    'grupo',    grupos,                     filtros.grupo) +
         sel('Subgrupo', 'subgrupo', subgrupos,                  filtros.subgrupo) +
         sel('Estado',   'estado',   ['pagado','parcial','sin_pago'], filtros.estado) +
         '<input class="input" style="width:220px" type="search" data-f="q" placeholder="Buscar nombre..." value="' + escAttr(filtros.q) + '">' +

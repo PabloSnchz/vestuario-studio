@@ -1,22 +1,75 @@
 // ============================================================
-// views/reportes.js - Reportes basicos + export CSV
+// views/reportes.js - Reportes con datos macro
 // ============================================================
 
 import {
   getState, getParticipantesEvento, calcularEstadoPago,
-  findAlumna, findDiseno,
+  findAlumna,
 } from '../store.js';
 import { setFab } from '../ui.js';
 
 export function renderReportes(container) {
   setFab(null);
 
+  const participantes = getParticipantesEvento();
+
+  // Deudores
+  const deudores = participantes.filter(p => calcularEstadoPago(p).debe > 0);
+  const deudaTotal = deudores.reduce((s, p) => s + calcularEstadoPago(p).debe, 0);
+
+  // Medidas
+  const conMedidas = participantes.filter(p => {
+    const al = findAlumna(p.alumna_id);
+    if (!al || !al.medidas) return false;
+    const m = al.medidas;
+    return (m.busto || m.cintura || m.cadera || m.altura || m.talle);
+  });
+
+  // Cobranza
+  let aPagar = 0, cobrado = 0;
+  for (const p of participantes) {
+    const r = calcularEstadoPago(p);
+    aPagar += r.aPagar;
+    cobrado += r.pagado;
+  }
+  const pct = aPagar > 0 ? Math.round(cobrado / aPagar * 100) : 0;
+
   container.innerHTML =
     '<h1 class="text-headline4">Reportes</h1>' +
+    '<p class="text-bodysmall" style="color:var(--c-color-text-subtle)">' +
+      'Resumen del evento activo: <strong>' +
+      (getState().eventoActivo ? getState().eventoActivo.nombre : '-') + '</strong>' +
+    '</p>' +
+
     '<div class="cards-grid" style="grid-template-columns:repeat(3,1fr)">' +
-      cardReporte('Deudores por grupo', 'Alumnas con saldo pendiente', 'deudores') +
-      cardReporte('Medidas por grupo', 'Listado para el taller', 'medidas') +
-      cardReporte('Cobranza por grupo', 'Total cobrado y pendiente', 'cobranza') +
+
+      cardReporte({
+        tipo: 'deudores',
+        titulo: 'Deudores',
+        subtitulo: 'Alumnas con saldo pendiente',
+        colorBorde: 'var(--c-color-fill-error)',
+        metricaPrincipal: deudores.length + ' alumnas',
+        metricaSecundaria: '$' + deudaTotal.toLocaleString('es-AR') + ' adeudado',
+      }) +
+
+      cardReporte({
+        tipo: 'medidas',
+        titulo: 'Medidas',
+        subtitulo: 'Listado para el taller',
+        colorBorde: 'var(--c-color-fill-info)',
+        metricaPrincipal: conMedidas.length + ' alumnas',
+        metricaSecundaria: 'con medidas cargadas',
+      }) +
+
+      cardReporte({
+        tipo: 'cobranza',
+        titulo: 'Cobranza',
+        subtitulo: 'Cobrado vs total del evento',
+        colorBorde: 'var(--c-color-fill-success)',
+        metricaPrincipal: '$' + cobrado.toLocaleString('es-AR'),
+        metricaSecundaria: 'de $' + aPagar.toLocaleString('es-AR') + ' (' + pct + '%)',
+      }) +
+
     '</div>' +
     '<div id="reporte-detalle"></div>';
 
@@ -27,14 +80,22 @@ export function renderReportes(container) {
       if (tipo === 'deudores') renderDeudores(detalle);
       if (tipo === 'medidas')  renderMedidas(detalle);
       if (tipo === 'cobranza') renderCobranza(detalle);
+      detalle.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
 
-function cardReporte(title, meta, tipo) {
-  return '<button class="card card--interactive" style="text-align:left" data-reporte="' + tipo + '" type="button">' +
-    '<div class="card__title">' + title + '</div>' +
-    '<div class="card__meta">' + meta + '</div>' +
+function cardReporte(opts) {
+  return '<button class="card card--interactive" style="text-align:left;border-left:4px solid ' + opts.colorBorde + ';padding-left:var(--c-spacing-4);" data-reporte="' + opts.tipo + '" type="button">' +
+    '<div class="card__title">' + esc(opts.titulo) + '</div>' +
+    '<div class="card__meta">' + esc(opts.subtitulo) + '</div>' +
+    '<div style="margin-top:var(--c-spacing-2)">' +
+      '<div style="font-family:var(--c-font-family-headline);font-size:var(--c-typography-headline4-size);font-weight:700;color:var(--c-color-text-strong)">' +
+        esc(opts.metricaPrincipal) +
+      '</div>' +
+      '<div class="text-caption">' + esc(opts.metricaSecundaria) + '</div>' +
+    '</div>' +
+    '<div class="text-caption" style="margin-top:var(--c-spacing-3);color:var(--c-color-text-info)">Ver detalle â†’</div>' +
   '</button>';
 }
 
@@ -45,7 +106,7 @@ function renderDeudores(container) {
   container.innerHTML =
     '<h2 class="text-headline5" style="margin-top:var(--c-spacing-5)">Deudores</h2>' +
     '<div class="toolbar"><div></div><div class="toolbar__actions">' +
-      '<button class="btn btn--secondary" type="button" id="exp-deudores">Exportar CSV</button>' +
+      '<button class="btn btn--secondary btn--small" type="button" id="exp-deudores">Exportar CSV</button>' +
     '</div></div>' +
     '<div class="table-wrapper"><table class="table">' +
       '<thead><tr><th>Alumna</th><th>Grupo</th><th>Precio</th><th>Pagado</th><th>Debe</th><th>Estado</th></tr></thead>' +
@@ -55,13 +116,14 @@ function renderDeudores(container) {
           : deudores.map(p => {
             const al = findAlumna(p.alumna_id);
             const r = calcularEstadoPago(p);
+            const labels = { pagado: 'Pagado', parcial: 'Parcial', sin_pago: 'Sin pago', bonificado: 'Bonificado' };
             return '<tr>' +
               '<td>' + esc(al ? al.nombre : '-') + '</td>' +
               '<td>' + esc(p.grupo || '-') + '</td>' +
               '<td>$' + Number(p.precio_final || 0).toLocaleString('es-AR') + '</td>' +
               '<td>$' + r.pagado.toLocaleString('es-AR') + '</td>' +
               '<td>$' + r.debe.toLocaleString('es-AR') + '</td>' +
-              '<td>' + r.estado + '</td>' +
+              '<td>' + (labels[r.estado] || r.estado) + '</td>' +
             '</tr>';
           }).join('')) +
       '</tbody>' +
@@ -88,7 +150,7 @@ function renderMedidas(container) {
   container.innerHTML =
     '<h2 class="text-headline5" style="margin-top:var(--c-spacing-5)">Medidas</h2>' +
     '<div class="toolbar"><div></div><div class="toolbar__actions">' +
-      '<button class="btn btn--secondary" type="button" id="exp-medidas">Exportar CSV</button>' +
+      '<button class="btn btn--secondary btn--small" type="button" id="exp-medidas">Exportar CSV</button>' +
     '</div></div>' +
     '<div class="table-wrapper"><table class="table">' +
       '<thead><tr><th>Alumna</th><th>Grupo</th><th>Subgrupo</th><th>Busto</th><th>Cintura</th><th>Cadera</th><th>Altura</th><th>Talle</th><th>Obs</th></tr></thead>' +
@@ -133,7 +195,7 @@ function renderCobranza(container) {
   container.innerHTML =
     '<h2 class="text-headline5" style="margin-top:var(--c-spacing-5)">Cobranza por grupo</h2>' +
     '<div class="toolbar"><div></div><div class="toolbar__actions">' +
-      '<button class="btn btn--secondary" type="button" id="exp-cobranza">Exportar CSV</button>' +
+      '<button class="btn btn--secondary btn--small" type="button" id="exp-cobranza">Exportar CSV</button>' +
     '</div></div>' +
     '<div class="table-wrapper"><table class="table">' +
       '<thead><tr><th>Grupo</th><th>Alumnas</th><th>Total a pagar</th><th>Cobrado</th><th>Por cobrar</th></tr></thead>' +
