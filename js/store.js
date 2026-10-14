@@ -75,6 +75,10 @@ export async function saveEventoActivo(message) {
   await writeJSON(state.repo, `data/eventos/${id}.json`, state.eventoActivo, message || `Actualizacion evento ${id}`);
 }
 
+
+export async function saveConfig(message) {
+  await writeJSON(state.repo, 'data/config.json', state.config, message || 'Actualizacion config');
+}
 export function findAlumna(id) {
   return state.alumnas.find((a) => a.id === id) || null;
 }

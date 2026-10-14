@@ -21,7 +21,7 @@ function renderModal() {
   const state = getState();
   const participantes = state.eventoActivo.participantes || [];
   const disenos = state.disenos || [];
-  const grupos = ['Babys', 'Kids', 'Pre Teens', 'Adolescentes'];
+  const grupos = state.config.grupos || [];
 
   // Si hay preseleccion, mostramos alert
   const disPre = _preseleccion ? disenos.find(d => d.id === _preseleccion) : null;

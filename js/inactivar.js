@@ -17,7 +17,7 @@ export function abrirInactivador(onDone) {
 function renderModal() {
   const state = getState();
   const participantes = state.eventoActivo.participantes || [];
-  const grupos = ['Babys', 'Kids', 'Pre Teens', 'Adolescentes'];
+  const grupos = state.config.grupos || [];
 
   const gruposHtml = grupos.map(g => {
     const activas = participantes.filter(p => p.grupo === g && p.activa_en_evento !== false);

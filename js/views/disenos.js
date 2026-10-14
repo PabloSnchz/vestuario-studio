@@ -176,10 +176,10 @@ function abrirFormDiseno(disenoId, container) {
     : (state.disenos || []).find(x => x.id === disenoId);
   if (!d) return;
 
-  const grupos = ['Babys', 'Kids', 'Pre Teens', 'Adolescentes'];
-  const subgrupos = ['Vestuario', 'Comedia', 'Competencia'];
-  const tipologias = ['Vestido', 'Pantalon', 'Falda'];
-  const tematicasSugeridas = ['Dia/Sol Dorado', 'Noche/Luna'];
+  const grupos = state.config.grupos || [];
+  const subgrupos = state.config.subgrupos || [];
+  const tipologias = state.config.tipologias || [];
+  const tematicasSugeridas = state.config.tematicas || [];
 
   openModal(
     '<div class="modal__header">' +

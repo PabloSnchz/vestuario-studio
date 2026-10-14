@@ -13,6 +13,7 @@ import { renderDisenos }   from './views/disenos.js';
 import { renderEventos }   from './views/eventos.js';
 import { renderPagos }     from './views/pagos.js';
 import { renderReportes }  from './views/reportes.js';
+import { renderCatalogos } from './views/catalogos.js';
 
 const TEMA_KEY = 'vestuario_studio_tema';
 const TEMAS_VALIDOS = ['cereza', 'oliva', 'terracota', 'grafito'];
@@ -24,6 +25,7 @@ const routes = {
   eventos:   { render: renderEventos,   title: 'Eventos' },
   pagos:     { render: renderPagos,     title: 'Pagos' },
   reportes:  { render: renderReportes,  title: 'Reportes' },
+  catalogos: { render: renderCatalogos, title: 'Catalogos' },
 };
 
 const viewContainer = document.getElementById('view-container');

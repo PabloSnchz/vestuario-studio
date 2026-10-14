@@ -286,13 +286,13 @@ function editarParticipante(alumnaId, subgrupo, container) {
       '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
         '<label class="field"><span class="field__label">Grupo</span>' +
           '<select class="input input--select" id="e-grupo">' +
-            ['Babys','Kids','Pre Teens','Adolescentes'].map(g =>
+            getState().config.grupos.map(g =>
               '<option' + (g === p.grupo ? ' selected' : '') + '>' + g + '</option>'
             ).join('') +
           '</select></label>' +
         '<label class="field"><span class="field__label">Subgrupo</span>' +
           '<select class="input input--select" id="e-subgrupo">' +
-            ['Vestuario','Comedia','Competencia'].map(s =>
+            getState().config.subgrupos.map(s =>
               '<option' + (s === p.subgrupo ? ' selected' : '') + '>' + s + '</option>'
             ).join('') +
           '</select></label>' +
