@@ -35,7 +35,7 @@
     },
     {
       "alumna_id": "alu_002",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Competencia",
       "diseno_id": "",
