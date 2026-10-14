@@ -135,7 +135,7 @@ function cardReporte(opts) {
           '<div style="height:100%;width:' + opts.progreso + '%;background:' + opts.color + ';transition:width .3s"></div>' +
         '</div>'
       : '') +
-    '<div class="text-caption" style="margin-top:var(--c-spacing-3);color:var(--c-color-text-info)">Ver detalle â†’</div>' +
+    '<div class="text-caption" style="margin-top:var(--c-spacing-3);color:var(--c-color-text-info)">Ver detalle &rarr;</div>' +
   '</button>';
 }
 
