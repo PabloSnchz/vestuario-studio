@@ -24,7 +24,7 @@ export function renderDisenos(container) {
   });
 
   container.innerHTML =
-    '<h1 class="text-headline4">Disenos</h1>' +
+    '<h1 class="text-headline4">Diseños</h1>' +
     '<div class="toolbar">' +
       '<div class="toolbar__filters">' +
         sel('Tematica', 'tematica', tematicas, filtros.tematica) +
