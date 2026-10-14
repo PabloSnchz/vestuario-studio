@@ -111,6 +111,7 @@ export function getAlumnasFueraDelEvento() {
   return (state.alumnas || []).filter(a => !idsEnEvento.has(a.id));
 }
 
+export function generarId(prefijo) {
   const rand = Math.random().toString(36).slice(2, 8);
   return `${prefijo}_${Date.now().toString(36)}_${rand}`;
 }
