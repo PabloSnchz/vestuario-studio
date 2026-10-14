@@ -1,15 +1,17 @@
 // ============================================================
-// views/disenos.js - Galeria de disenos con detalle
+// views/disenos.js - Galeria + ABM de disenos
 // ============================================================
 
-import { getState } from '../store.js';
-import { setFab, openModal, closeModal } from '../ui.js';
+import { getState, saveDisenos, generarId } from '../store.js';
+import { setFab, openModal, closeModal, showToast, confirmDialog } from '../ui.js';
 import { abrirAsignador } from '../asignar.js';
+import { icons } from '../icons.js';
 
 const filtros = { tematica: '', grupo: '' };
 
 export function renderDisenos(container) {
-  setFab(null);
+  setFab('Nuevo diseno', () => abrirFormDiseno(null, container), icons.plus);
+
   const state = getState();
   const disenos = state.disenos || [];
   const tematicas = uniq(disenos.map(d => d.tematica));
@@ -29,12 +31,12 @@ export function renderDisenos(container) {
         sel('Grupo',    'grupo',    grupos,    filtros.grupo) +
       '</div>' +
       '<div class="toolbar__actions">' +
-        '<span class="text-caption">' + filtrados.length + ' disenos</span>' +
+        '<span class="text-caption">' + filtrados.length + ' de ' + disenos.length + ' disenos</span>' +
       '</div>' +
     '</div>' +
     '<div class="cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">' +
       (filtrados.length === 0
-        ? '<div class="empty-state">Sin disenos cargados</div>'
+        ? '<div class="empty-state">Sin disenos cargados. Hace click en el boton <strong>+</strong> para crear uno.</div>'
         : filtrados.map(cardHtml).join('')) +
     '</div>';
 
@@ -56,7 +58,9 @@ function cardHtml(d) {
         '<img src="' + escAttr(d.imagen) + '" alt="' + escAttr(d.nombre) + '" loading="lazy" ' +
           'style="max-width:100%;max-height:100%;object-fit:contain;">' +
       '</div>'
-    : '<div style="width:100%;height:280px;background:var(--c-color-surface-neutral-subtle);border-radius:var(--c-border-radius-xsmall);display:flex;align-items:center;justify-content:center;color:var(--c-color-text-subtle)">Sin imagen</div>';
+    : '<div style="width:100%;height:280px;background:var(--c-color-surface-neutral-subtle);border-radius:var(--c-border-radius-xsmall);display:flex;align-items:center;justify-content:center;color:var(--c-color-icon-disabled)">' +
+        icons.image +
+      '</div>';
 
   return '<div class="card card--interactive" data-diseno-id="' + escAttr(d.id) + '" role="button" tabindex="0" title="Click para ver detalle">' +
     img +
@@ -84,14 +88,13 @@ function verDetalle(disenoId, container) {
       '</div>'
     : '<div class="alert alert--info">Sin imagen cargada</div>';
 
-  // Contar cuantas alumnas del evento activo tienen este diseno asignado
   const participantes = (state.eventoActivo && state.eventoActivo.participantes) || [];
   const asignadas = participantes.filter(p => p.diseno_id === disenoId).length;
 
   openModal(
     '<div class="modal__header">' +
       '<h2 class="modal__title">' + esc(d.nombre) + '</h2>' +
-      '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
+      '<button class="kebab" type="button" data-close aria-label="Cerrar">' + icons.close + '</button>' +
     '</div>' +
     '<div class="modal__body">' +
       img +
@@ -113,21 +116,171 @@ function verDetalle(disenoId, container) {
         : '') +
     '</div>' +
     '<div class="modal__footer">' +
-      '<button class="btn btn--ghost" type="button" data-close>Cerrar</button>' +
-      '<button class="btn btn--secondary" type="button" id="d-asignar" title="Asignar este diseno a alumnas del grupo">Asignar a alumnas</button>' +
-      '<button class="btn btn--primary" type="button" id="d-editar" disabled title="Proximamente">Editar</button>' +
+      '<button class="btn btn--ghost" type="button" id="d-eliminar" title="Eliminar este diseno">' + icons.trash + ' Eliminar</button>' +
+      '<button class="btn btn--secondary" type="button" id="d-asignar" title="Asignar este diseno a alumnas del grupo">' + icons.users + ' Asignar</button>' +
+      '<button class="btn btn--primary" type="button" id="d-editar" title="Editar este diseno">' + icons.edit + ' Editar</button>' +
     '</div>'
   );
 
-  document.getElementById('d-asignar').addEventListener('click', () => {
+  document.getElementById('d-editar').addEventListener('click', () => {
     closeModal();
-    setTimeout(() => {
-      abrirAsignador(() => renderDisenos(container), disenoId);
-    }, 100);
+    setTimeout(() => abrirFormDiseno(disenoId, container), 100);
   });
 
-  // El boton Editar queda deshabilitado (proxima iteracion)
-  // document.getElementById('d-editar').addEventListener(...);
+  document.getElementById('d-asignar').addEventListener('click', () => {
+    closeModal();
+    setTimeout(() => abrirAsignador(() => renderDisenos(container), disenoId), 100);
+  });
+
+  document.getElementById('d-eliminar').addEventListener('click', async () => {
+    closeModal();
+    setTimeout(async () => {
+      const ok = await confirmDialog(
+        'Eliminar diseno',
+        'Estas por eliminar <strong>' + esc(d.nombre) + '</strong>. ' +
+        (asignadas > 0 ? 'Esta asignado a <strong>' + asignadas + ' alumnas</strong>. ' : '') +
+        'Esta accion no se puede deshacer.'
+      );
+      if (!ok) return;
+      try {
+        const state2 = getState();
+        state2.disenos = state2.disenos.filter(x => x.id !== disenoId);
+        // Quitar asignaciones huerfanas
+        const participantes2 = state2.eventoActivo.participantes || [];
+        for (const p of participantes2) {
+          if (p.diseno_id === disenoId) p.diseno_id = '';
+        }
+        await saveDisenos('Eliminar diseno ' + d.nombre);
+        // Guardar tambien el evento si habia asignaciones
+        if (asignadas > 0) {
+          const { saveEventoActivo } = await import('../store.js');
+          await saveEventoActivo('Quitar asignaciones de ' + d.nombre);
+        }
+        showToast('Diseno eliminado', 'success');
+        renderDisenos(container);
+      } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+      }
+    }, 100);
+  });
+}
+
+/* ============================================================
+   FORM CREAR / EDITAR
+   ============================================================ */
+function abrirFormDiseno(disenoId, container) {
+  const state = getState();
+  const esNuevo = !disenoId;
+  const d = esNuevo
+    ? { nombre: '', tematica: '', grupo: '', subgrupo: 'Vestuario', tipologia: 'Vestido', precio_base: 0, imagen: '', materiales: '' }
+    : (state.disenos || []).find(x => x.id === disenoId);
+  if (!d) return;
+
+  const grupos = ['Babys', 'Kids', 'Pre Teens', 'Adolescentes'];
+  const subgrupos = ['Vestuario', 'Comedia', 'Competencia'];
+  const tipologias = ['Vestido', 'Pantalon', 'Falda'];
+  const tematicasSugeridas = ['Dia/Sol Dorado', 'Noche/Luna'];
+
+  openModal(
+    '<div class="modal__header">' +
+      '<h2 class="modal__title">' + (esNuevo ? 'Nuevo diseno' : 'Editar diseno') + '</h2>' +
+      '<button class="kebab" type="button" data-close aria-label="Cerrar">' + icons.close + '</button>' +
+    '</div>' +
+    '<div class="modal__body">' +
+
+      '<label class="field"><span class="field__label">Nombre</span>' +
+        '<input class="input" id="f-nombre" value="' + escAttr(d.nombre) + '" placeholder="Ej: Kids - Sol Dorado"></label>' +
+
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Tematica</span>' +
+          '<input class="input" id="f-tematica" list="f-tematicas" value="' + escAttr(d.tematica || '') + '">' +
+          '<datalist id="f-tematicas">' +
+            tematicasSugeridas.map(t => '<option value="' + escAttr(t) + '">').join('') +
+          '</datalist>' +
+        '</label>' +
+        '<label class="field"><span class="field__label">Grupo</span>' +
+          '<select class="input input--select" id="f-grupo">' +
+            '<option value="">(sin grupo)</option>' +
+            grupos.map(g => '<option' + (g === d.grupo ? ' selected' : '') + '>' + g + '</option>').join('') +
+          '</select></label>' +
+        '<label class="field"><span class="field__label">Subgrupo</span>' +
+          '<select class="input input--select" id="f-subgrupo">' +
+            subgrupos.map(s => '<option' + (s === d.subgrupo ? ' selected' : '') + '>' + s + '</option>').join('') +
+          '</select></label>' +
+        '<label class="field"><span class="field__label">Tipologia</span>' +
+          '<select class="input input--select" id="f-tipologia">' +
+            tipologias.map(t => '<option' + (t === d.tipologia ? ' selected' : '') + '>' + t + '</option>').join('') +
+          '</select></label>' +
+      '</div>' +
+
+      '<div class="cards-grid" style="grid-template-columns:1fr 1fr;gap:var(--c-spacing-3)">' +
+        '<label class="field"><span class="field__label">Precio base</span>' +
+          '<input class="input" type="number" id="f-precio" value="' + (d.precio_base || 0) + '"></label>' +
+        '<label class="field"><span class="field__label">Imagen (ruta en el repo)</span>' +
+          '<input class="input" id="f-imagen" value="' + escAttr(d.imagen || '') + '" placeholder="assets/disenos/xxx.png"></label>' +
+      '</div>' +
+
+      '<label class="field"><span class="field__label">Descripcion / Materiales</span>' +
+        '<textarea class="input input--textarea" id="f-materiales" style="min-height:120px">' + esc(d.materiales || '') + '</textarea></label>' +
+
+      (esNuevo ? '' :
+        '<div class="alert alert--info">' +
+          'Si cambias el nombre o la imagen, asegurate de que el archivo siga estando en <strong>assets/disenos/</strong>. ' +
+          'Para agregar imagenes nuevas, subilas al repo desde GitHub.' +
+        '</div>') +
+
+    '</div>' +
+    '<div class="modal__footer">' +
+      '<button class="btn btn--ghost" type="button" data-close>Cancelar</button>' +
+      '<button class="btn btn--primary" type="button" id="f-guardar">' +
+        (esNuevo ? icons.plus + ' Crear' : icons.save + ' Guardar') +
+      '</button>' +
+    '</div>'
+  );
+
+  document.getElementById('f-guardar').addEventListener('click', async () => {
+    const nombre = document.getElementById('f-nombre').value.trim();
+    if (!nombre) return showToast('El nombre es obligatorio', 'warning');
+
+    const datos = {
+      nombre,
+      tematica: document.getElementById('f-tematica').value.trim(),
+      grupo: document.getElementById('f-grupo').value,
+      subgrupo: document.getElementById('f-subgrupo').value,
+      tipologia: document.getElementById('f-tipologia').value,
+      precio_base: Number(document.getElementById('f-precio').value) || 0,
+      imagen: document.getElementById('f-imagen').value.trim(),
+      materiales: document.getElementById('f-materiales').value.trim(),
+    };
+
+    try {
+      if (esNuevo) {
+        const id = generarIdDiseno(nombre);
+        state.disenos.push(Object.assign({ id }, datos));
+        await saveDisenos('Nuevo diseno ' + nombre);
+        showToast('Diseno creado', 'success');
+      } else {
+        Object.assign(d, datos);
+        await saveDisenos('Editar diseno ' + nombre);
+        showToast('Diseno actualizado', 'success');
+      }
+      closeModal();
+      renderDisenos(container);
+    } catch (err) {
+      showToast('Error: ' + err.message, 'error');
+    }
+  });
+}
+
+function generarIdDiseno(nombre) {
+  const slug = String(nombre || 'diseno')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .substring(0, 30) || 'diseno';
+  const r = Math.random().toString(36).slice(2, 6);
+  return 'dis_' + slug + '_' + r;
 }
 
 function sel(label, id, options, current) {
