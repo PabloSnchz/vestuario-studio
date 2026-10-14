@@ -4,6 +4,7 @@
 
 import { getState } from '../store.js';
 import { setFab, openModal, closeModal } from '../ui.js';
+import { abrirAsignador } from '../asignar.js';
 
 const filtros = { tematica: '', grupo: '' };
 
@@ -45,7 +46,7 @@ export function renderDisenos(container) {
   });
 
   container.querySelectorAll('[data-diseno-id]').forEach(btn => {
-    btn.addEventListener('click', () => verDetalle(btn.dataset.disenoId));
+    btn.addEventListener('click', () => verDetalle(btn.dataset.disenoId, container));
   });
 }
 
@@ -72,7 +73,7 @@ function cardHtml(d) {
   '</div>';
 }
 
-function verDetalle(disenoId) {
+function verDetalle(disenoId, container) {
   const state = getState();
   const d = (state.disenos || []).find(x => x.id === disenoId);
   if (!d) return;
@@ -82,6 +83,10 @@ function verDetalle(disenoId) {
         '<img src="' + escAttr(d.imagen) + '" alt="' + escAttr(d.nombre) + '" style="max-width:100%;max-height:60vh;object-fit:contain;">' +
       '</div>'
     : '<div class="alert alert--info">Sin imagen cargada</div>';
+
+  // Contar cuantas alumnas del evento activo tienen este diseno asignado
+  const participantes = (state.eventoActivo && state.eventoActivo.participantes) || [];
+  const asignadas = participantes.filter(p => p.diseno_id === disenoId).length;
 
   openModal(
     '<div class="modal__header">' +
@@ -99,6 +104,9 @@ function verDetalle(disenoId) {
       '<div><div class="text-caption">Precio base</div>' +
         '<p class="text-headline5">$' + Number(d.precio_base || 0).toLocaleString('es-AR') + '</p>' +
       '</div>' +
+      '<div><div class="text-caption">Asignadas en este evento</div>' +
+        '<p>' + asignadas + ' alumnas ya tienen este diseno</p>' +
+      '</div>' +
       (d.materiales
         ? '<div><div class="text-caption">Descripcion / Materiales</div>' +
             '<p style="white-space:pre-wrap;line-height:1.5">' + esc(d.materiales) + '</p></div>'
@@ -106,8 +114,20 @@ function verDetalle(disenoId) {
     '</div>' +
     '<div class="modal__footer">' +
       '<button class="btn btn--ghost" type="button" data-close>Cerrar</button>' +
+      '<button class="btn btn--secondary" type="button" id="d-asignar" title="Asignar este diseno a alumnas del grupo">Asignar a alumnas</button>' +
+      '<button class="btn btn--primary" type="button" id="d-editar" disabled title="Proximamente">Editar</button>' +
     '</div>'
   );
+
+  document.getElementById('d-asignar').addEventListener('click', () => {
+    closeModal();
+    setTimeout(() => {
+      abrirAsignador(() => renderDisenos(container), disenoId);
+    }, 100);
+  });
+
+  // El boton Editar queda deshabilitado (proxima iteracion)
+  // document.getElementById('d-editar').addEventListener(...);
 }
 
 function sel(label, id, options, current) {

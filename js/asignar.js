@@ -1,5 +1,6 @@
 // ============================================================
 // asignar.js - Asignacion masiva de disenos por grupo
+// Acepta un diseno preseleccionado (opcional).
 // ============================================================
 
 import {
@@ -7,15 +8,30 @@ import {
 } from './store.js';
 import { openModal, closeModal, showToast } from './ui.js';
 
-export function abrirAsignador(onDone) {
-  renderModal(onDone);
+let _preseleccion = null;
+let _onDone = null;
+
+export function abrirAsignador(onDone, disenoId) {
+  _onDone = onDone || null;
+  _preseleccion = disenoId || null;
+  renderModal();
 }
 
-function renderModal(onDone) {
+function renderModal() {
   const state = getState();
   const participantes = state.eventoActivo.participantes || [];
   const disenos = state.disenos || [];
   const grupos = ['Babys', 'Kids', 'Pre Teens', 'Adolescentes'];
+
+  // Si hay preseleccion, mostramos alert
+  const disPre = _preseleccion ? disenos.find(d => d.id === _preseleccion) : null;
+  const alertPre = disPre
+    ? '<div class="alert alert--info">' +
+        'Asignando el diseno <strong>' + esc(disPre.nombre) + '</strong> ($' +
+        Number(disPre.precio_base || 0).toLocaleString('es-AR') + ') ' +
+        'a las alumnas del grupo <strong>' + esc(disPre.grupo) + '</strong>.' +
+      '</div>'
+    : '';
 
   const gruposHtml = grupos.map(g => {
     const total = participantes.filter(p => p.grupo === g).length;
@@ -31,11 +47,16 @@ function renderModal(onDone) {
       '</div>';
     }
 
-    // Para Adolescentes: detectar si hay mixto (con y sin tipologia Pantalon)
     const esAdolescentes = g === 'Adolescentes';
     const tieneVestidos = participantes.some(p => p.grupo === g && (p.tipologia || '').toLowerCase() !== 'pantalon');
     const tienePantalones = participantes.some(p => p.grupo === g && (p.tipologia || '').toLowerCase() === 'pantalon');
     const mostrarFiltroTipo = esAdolescentes && tieneVestidos && tienePantalones;
+
+    // Determinar diseno por defecto
+    let disenoDefault = disenosGrupo[0].id;
+    if (_preseleccion && disPre && disPre.grupo === g && disenosGrupo.some(d => d.id === _preseleccion)) {
+      disenoDefault = _preseleccion;
+    }
 
     const filtroTipoHtml = mostrarFiltroTipo
       ? '<label class="field" style="margin-top:var(--c-spacing-2)"><span class="field__label">Filtrar por tipologia</span>' +
@@ -45,6 +66,9 @@ function renderModal(onDone) {
             '<option value="pantalon">Solo Pantalones</option>' +
           '</select></label>'
       : '';
+
+    // Preseleccionar "Solo sin diseno" siempre
+    const targetDefault = 'sin_diseno';
 
     return '<div class="card" style="padding:var(--c-spacing-4);margin-bottom:var(--c-spacing-3)">' +
       '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--c-spacing-3);flex-wrap:wrap;gap:var(--c-spacing-2)">' +
@@ -58,14 +82,15 @@ function renderModal(onDone) {
         '<label class="field"><span class="field__label">Diseno a asignar</span>' +
           '<select class="input input--select" data-grupo="' + escAttr(g) + '" data-rol="diseno">' +
             disenosGrupo.map(d =>
-              '<option value="' + escAttr(d.id) + '">' + esc(d.nombre) +
+              '<option value="' + escAttr(d.id) + '"' + (d.id === disenoDefault ? ' selected' : '') + '>' +
+                esc(d.nombre) +
                 ' ($' + Number(d.precio_base || 0).toLocaleString('es-AR') + ')' +
               '</option>'
             ).join('') +
           '</select></label>' +
         '<label class="field"><span class="field__label">Aplicar a</span>' +
           '<select class="input input--select" data-grupo="' + escAttr(g) + '" data-rol="target">' +
-            '<option value="sin_diseno">Solo sin diseno (' + sinDiseno + ')</option>' +
+            '<option value="sin_diseno"' + (targetDefault === 'sin_diseno' ? ' selected' : '') + '>Solo sin diseno (' + sinDiseno + ')</option>' +
             '<option value="todos">Todos (' + total + ')</option>' +
           '</select></label>' +
       '</div>' +
@@ -82,6 +107,7 @@ function renderModal(onDone) {
       '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
     '</div>' +
     '<div class="modal__body">' +
+      alertPre +
       '<div class="alert alert--info">' +
         'Asigna un diseno a todas las alumnas de un grupo. ' +
         'Podes reasignar solo a quienes no tienen diseno, o sobreescribir a todas. ' +
@@ -94,7 +120,6 @@ function renderModal(onDone) {
     '</div>'
   );
 
-  // Wire apply buttons
   document.querySelectorAll('[data-aplicar]').forEach(btn => {
     btn.addEventListener('click', async () => {
       const grupo = btn.dataset.aplicar;
@@ -124,8 +149,8 @@ function renderModal(onDone) {
       try {
         await saveEventoActivo('Asignacion masiva ' + grupo + ' -> ' + disenoId);
         showToast(count + ' alumnas actualizadas en ' + grupo, 'success');
-        // Re-render the modal to refresh counters
-        renderModal(onDone);
+        renderModal();
+        if (_onDone) _onDone();
       } catch (err) {
         showToast('Error: ' + err.message, 'error');
       }
