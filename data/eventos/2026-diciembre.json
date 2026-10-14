@@ -60,7 +60,7 @@
     },
     {
       "alumna_id": "alu_003",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Competencia",
       "diseno_id": "",
@@ -85,7 +85,7 @@
     },
     {
       "alumna_id": "alu_004",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Competencia",
       "diseno_id": "",
@@ -110,7 +110,7 @@
     },
     {
       "alumna_id": "alu_005",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Competencia",
       "diseno_id": "",
@@ -135,7 +135,7 @@
     },
     {
       "alumna_id": "alu_006",
-      "activa_en_evento": true,
+      "activa_en_evento": false,
       "grupo": "Adolescentes",
       "subgrupo": "Competencia",
       "diseno_id": "",
