@@ -265,7 +265,7 @@ function editarParticipante(alumnaId, subgrupo, container) {
           '</select></label>' +
         '<label class="field"><span class="field__label">Tipologia</span>' +
           '<input class="input" id="e-tipologia" value="' + escAttr(p.tipologia || '') + '"></label>' +
-        '<label class="field"><span class="field__label">Diseno asignado</span>' +
+        '<label class="field"><span class="field__label">Diseño asignado</span>' +
           '<select class="input input--select" id="e-diseno">' +
             '<option value="">(sin diseno)</option>' +
             disenos.map(d =>
