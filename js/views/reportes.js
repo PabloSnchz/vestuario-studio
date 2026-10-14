@@ -1,7 +1,7 @@
 // ============================================================
 // views/reportes.js - Reportes en 2 filas
 // Fila 1 (macro):     Cobranza | Deudores
-// Fila 2 (operativo): Medidas | Disenos | Cuotas
+// Fila 2 (operativo): Medidas | Disenos | Cuotas | Rentabilidad
 // ============================================================
 
 import {
@@ -42,21 +42,22 @@ export function renderReportes(container) {
   const conDiseno = total - sinDiseno.length;
   const pctDiseno = total > 0 ? Math.round(conDiseno / total * 100) : 0;
 
+  const c1 = participantes.filter(p => p.cuotas && p.cuotas[0] && p.cuotas[0].pagado).length;
+  const c2 = participantes.filter(p => p.cuotas && p.cuotas[1] && p.cuotas[1].pagado).length;
+  const totalCuotas = total * 2;
+  const pctCuotas = totalCuotas > 0 ? Math.round((c1 + c2) / totalCuotas * 100) : 0;
+
   // ===== Rentabilidad =====
+  const disenos = state.disenos || [];
   let facturacionTotal = 0;
   let costoTotal = 0;
-  const disenos = state.disenos || [];
   for (const p of participantes) {
     facturacionTotal += Number(p.precio_final || 0) - Number(p.bonificacion || 0);
     const d = disenos.find(x => x.id === p.diseno_id);
     if (d) costoTotal += Number(d.costo || 0);
   }
   const gananciaTotal = facturacionTotal - costoTotal;
-
-  const c1 = participantes.filter(p => p.cuotas && p.cuotas[0] && p.cuotas[0].pagado).length;
-  const c2 = participantes.filter(p => p.cuotas && p.cuotas[1] && p.cuotas[1].pagado).length;
-  const totalCuotas = total * 2;
-  const pctCuotas = totalCuotas > 0 ? Math.round((c1 + c2) / totalCuotas * 100) : 0;
+  const pctMargen = facturacionTotal > 0 ? Math.round(gananciaTotal / facturacionTotal * 100) : 0;
 
   container.innerHTML =
     '<h1 class="text-headline4">Reportes</h1>' +
@@ -102,7 +103,7 @@ export function renderReportes(container) {
       cardReporte({
         tipo: 'disenos',
         icono: 'shirtLg',
-        titulo: 'Diseños asignados',
+        titulo: 'Disenos asignados',
         subtitulo: 'Faltantes de asignar',
         color: 'var(--c-color-fill-primary)',
         principal: sinDiseno.length + ' sin asignar',
@@ -116,8 +117,18 @@ export function renderReportes(container) {
         subtitulo: 'Cuota 1 y Cuota 2',
         color: 'var(--c-color-fill-caution)',
         principal: pctCuotas + '% cobrado',
-        secundaria: 'C1: ' + c1 + ' / ' + total + '  Â·  C2: ' + c2 + ' / ' + total,
+        secundaria: 'C1: ' + c1 + ' / ' + total + '  &middot;  C2: ' + c2 + ' / ' + total,
         progreso: pctCuotas,
+      }) +
+      cardReporte({
+        tipo: 'rentabilidad',
+        icono: 'trendingLg',
+        titulo: 'Rentabilidad',
+        subtitulo: 'Facturacion menos costos',
+        color: 'var(--c-color-fill-neutral-strong)',
+        principal: '$' + gananciaTotal.toLocaleString('es-AR'),
+        secundaria: '$' + facturacionTotal.toLocaleString('es-AR') + ' facturado - $' + costoTotal.toLocaleString('es-AR') + ' costo (' + pctMargen + '%)',
+        progreso: pctMargen,
       }) +
     '</div>' +
 
@@ -127,12 +138,12 @@ export function renderReportes(container) {
     btn.addEventListener('click', () => {
       const tipo = btn.dataset.reporte;
       const detalle = document.getElementById('reporte-detalle');
-      if (tipo === 'cobranza') renderCobranza(detalle);
-      if (tipo === 'deudores') renderDeudores(detalle);
-      if (tipo === 'medidas')  renderMedidas(detalle);
-      if (tipo === 'disenos')  renderDisenos(detalle);
-      if (tipo === 'cuotas')   renderCuotas(detalle);
-      if (tipo === 'rentabilidad') renderRentabilidad(detalle);
+      if (tipo === 'cobranza')      renderCobranza(detalle);
+      if (tipo === 'deudores')      renderDeudores(detalle);
+      if (tipo === 'medidas')       renderMedidas(detalle);
+      if (tipo === 'disenos')       renderDisenos(detalle);
+      if (tipo === 'cuotas')        renderCuotas(detalle);
+      if (tipo === 'rentabilidad')  renderRentabilidad(detalle);
       detalle.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
@@ -365,9 +376,9 @@ function renderCuotas(container) {
       '<thead><tr><th>Grupo</th><th>Alumnas</th><th>Cuota 1 pagadas</th><th>Cuota 2 pagadas</th><th>Progreso</th></tr></thead>' +
       '<tbody>' +
         Object.entries(porGrupo).map(([g, v]) => {
-          const total = v.n * 2;
+          const total2 = v.n * 2;
           const pagas = v.c1 + v.c2;
-          const pct = total > 0 ? Math.round(pagas / total * 100) : 0;
+          const pct = total2 > 0 ? Math.round(pagas / total2 * 100) : 0;
           return '<tr>' +
             '<td>' + esc(g) + '</td>' +
             '<td>' + v.n + '</td>' +
@@ -385,7 +396,6 @@ function renderRentabilidad(container) {
   const participantes = getParticipantesEvento();
   const disenos = state.disenos || [];
 
-  // Agrupar por diseno
   const porDiseno = {};
   for (const p of participantes) {
     const d = disenos.find(x => x.id === p.diseno_id);
@@ -405,15 +415,13 @@ function renderRentabilidad(container) {
     porDiseno[key].costoTotal += d ? Number(d.costo || 0) : 0;
   }
 
-  // Totales
   let facturacionTotal = 0;
   let costoTotal = 0;
-  let gananciaTotal = 0;
   for (const v of Object.values(porDiseno)) {
     facturacionTotal += v.facturado;
     costoTotal += v.costoTotal;
-    gananciaTotal += (v.facturado - v.costoTotal);
   }
+  const gananciaTotal = facturacionTotal - costoTotal;
   const pctMargen = facturacionTotal > 0 ? Math.round(gananciaTotal / facturacionTotal * 100) : 0;
 
   const filas = Object.entries(porDiseno)
@@ -466,6 +474,7 @@ function renderRentabilidad(container) {
     exportCSV('rentabilidad.csv', ['Diseno','Alumnas','Facturado','Costo','Ganancia','Margen'], rows);
   });
 }
+
 function exportCSV(filename, headers, rows) {
   const csv = [headers, ...rows].map(r => r.map(cell => {
     const s = String(cell == null ? '' : cell);
