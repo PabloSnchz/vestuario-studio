@@ -4,7 +4,7 @@
 
 import { loadConfig, loadAll, getState, subscribe } from './store.js';
 import { hasToken, setToken, writeJSON, ES_MODO_LOCAL } from './motor.js';
-import { getLocalStatus, hacerBackup } from './local.js';
+import { getLocalStatus, hacerBackup, actualizarApp } from './local.js';
 import { showToast, openModal, closeModal } from './ui.js';
 import { icons } from './icons.js';
 
@@ -155,6 +155,36 @@ async function init() {
   const btnBackup = document.getElementById('btn-backup');
   if (ES_MODO_LOCAL) {
     if (btnToken) btnToken.style.display = 'none';
+    const btnActualizar = document.getElementById('btn-actualizar');
+    if (btnActualizar) {
+      btnActualizar.style.display = 'inline-flex';
+      btnActualizar.addEventListener('click', async () => {
+        const ok = confirm('Bajar la ultima version del codigo desde GitHub? Se va a recargar la pagina.');
+        if (!ok) return;
+        btnActualizar.disabled = true;
+        btnActualizar.textContent = 'Actualizando...';
+        try {
+          const r = await actualizarApp();
+          if (r.ok) {
+            showToast(r.mensaje || 'Actualizado', 'success');
+            if (r.hayCambios) {
+              setTimeout(() => location.reload(), 1500);
+            } else {
+              btnActualizar.disabled = false;
+              btnActualizar.textContent = 'Actualizar';
+            }
+          } else {
+            showToast('Error: ' + (r.error || 'desconocido'), 'error');
+            btnActualizar.disabled = false;
+            btnActualizar.textContent = 'Actualizar';
+          }
+        } catch (e) {
+          showToast('Error: ' + e.message, 'error');
+          btnActualizar.disabled = false;
+          btnActualizar.textContent = 'Actualizar';
+        }
+      });
+    }
     if (btnBackup) {
       btnBackup.style.display = 'inline-flex';
       btnBackup.addEventListener('click', async () => {

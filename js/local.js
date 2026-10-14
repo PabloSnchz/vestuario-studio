@@ -66,3 +66,7 @@ export async function hacerBackup() {
   const res = await fetch(`${API_BASE}/backup`, { method: 'POST' });
   return res.json();
 }
+export async function actualizarApp() {
+  const res = await fetch(`${API_BASE}/update`, { method: 'POST' });
+  return res.json();
+}

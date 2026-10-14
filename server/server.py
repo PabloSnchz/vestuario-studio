@@ -113,6 +113,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._backup()
             return
 
+        if parsed.path == '/api/update':
+            self._update()
+            return
+
         self._json_response({'error': 'No encontrado'}, 404)
 
     def _read(self, rel_path):
@@ -173,6 +177,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     'fecha': partes[1] if len(partes) > 1 else '',
                     'mensaje': partes[2] if len(partes) > 2 else '',
                 }
+            })
+        except Exception as e:
+            self._json_response({'ok': False, 'error': str(e)}, 500)
+
+    def _update(self):
+        try:
+            result = subprocess.run(
+                ['git', 'pull'],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=60
+            )
+            if result.returncode != 0:
+                self._json_response({'ok': False, 'error': result.stderr or result.stdout}, 500)
+                return
+            salida = result.stdout.strip()
+            hayCambios = 'Already up to date' not in salida and 'Ya esta actualizado' not in salida
+            self._json_response({
+                'ok': True,
+                'hayCambios': hayCambios,
+                'mensaje': 'Actualizado' if hayCambios else 'Ya estas en la ultima version',
+                'salida': salida
             })
         except Exception as e:
             self._json_response({'ok': False, 'error': str(e)}, 500)
