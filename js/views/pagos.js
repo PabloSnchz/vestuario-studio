@@ -19,6 +19,7 @@ const ESTADOS = [
 
 export function renderPagos(container) {
   setFab(null);
+  const state = getState();
   const participantes = getParticipantesEvento();
   const filtrados = aplicarFiltros(participantes);
 
