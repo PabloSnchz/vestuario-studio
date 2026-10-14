@@ -16,7 +16,7 @@
       "diseno_id": "",
       "tipologia": "Pantalon",
       "precio_final": 85000,
-      "bonificacion": 10000,
+      "bonificacion": 0,
       "cuotas": [
         {
           "nro": 1,
