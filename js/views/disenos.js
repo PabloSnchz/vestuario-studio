@@ -3,7 +3,7 @@
 // ============================================================
 
 import { getState, saveDisenos, generarId } from '../store.js';
-import { uploadFile, fileToBase64 } from '../github.js';
+import { uploadFile, fileToBase64 } from '../motor.js';
 import { setFab, openModal, closeModal, showToast, confirmDialog } from '../ui.js';
 import { abrirAsignador } from '../asignar.js';
 import { icons } from '../icons.js';

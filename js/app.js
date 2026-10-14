@@ -3,7 +3,8 @@
 // ============================================================
 
 import { loadConfig, loadAll, getState, subscribe } from './store.js';
-import { hasToken, setToken, writeJSON } from './github.js';
+import { hasToken, setToken, writeJSON, ES_MODO_LOCAL } from './motor.js';
+import { getLocalStatus, hacerBackup } from './local.js';
 import { showToast, openModal, closeModal } from './ui.js';
 import { icons } from './icons.js';
 
@@ -149,6 +150,33 @@ subscribe(() => {
 
 async function init() {
   pintarIconos();
+
+  // Modo local vs GitHub
+  const btnBackup = document.getElementById('btn-backup');
+  if (ES_MODO_LOCAL) {
+    if (btnToken) btnToken.style.display = 'none';
+    if (btnBackup) {
+      btnBackup.style.display = 'inline-flex';
+      btnBackup.addEventListener('click', async () => {
+        btnBackup.disabled = true;
+        btnBackup.textContent = 'Guardando...';
+        try {
+          const r = await hacerBackup();
+          if (r.ok) {
+            showToast(r.mensaje || 'Backup completado', 'success');
+          } else {
+            showToast('Error: ' + (r.error || 'desconocido'), 'error');
+          }
+        } catch (e) {
+          showToast('Error: ' + e.message, 'error');
+        } finally {
+          btnBackup.disabled = false;
+          btnBackup.textContent = 'Backup a GitHub';
+        }
+      });
+    }
+  }
+
   btnToken.addEventListener('click', openTokenModal);
   eventoSelector.addEventListener('change', (e) => cambiarEvento(e.target.value));
   if (temaSelector) temaSelector.addEventListener('change', (e) => cambiarTema(e.target.value));

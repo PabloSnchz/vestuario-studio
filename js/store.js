@@ -2,7 +2,7 @@
 // store.js - Estado global + carga/guardado de datos
 // ============================================================
 
-import { readJSON, writeJSON } from './github.js';
+import { readJSON, writeJSON } from './motor.js';
 
 const listeners = new Set();
 
