@@ -5,6 +5,7 @@
 import { loadConfig, loadAll, getState, subscribe } from './store.js';
 import { hasToken, setToken, writeJSON } from './github.js';
 import { showToast, openModal, closeModal } from './ui.js';
+import { icons } from './icons.js';
 
 import { renderDashboard } from './views/dashboard.js';
 import { renderAlumnas }   from './views/alumnas.js';
@@ -32,6 +33,13 @@ const temaSelector = document.getElementById('tema-selector');
 const btnToken = document.getElementById('btn-token');
 const drawerLinks = document.querySelectorAll('.app-drawer__link');
 
+
+function pintarIconos() {
+  document.querySelectorAll('[data-icon]').forEach(el => {
+    const name = el.dataset.icon;
+    if (icons[name]) el.innerHTML = icons[name];
+  });
+}
 function getRoute() {
   const hash = window.location.hash.replace(/^#\//, '');
   return routes[hash] ? hash : 'dashboard';
@@ -136,6 +144,7 @@ subscribe(() => {
 });
 
 async function init() {
+  pintarIconos();
   btnToken.addEventListener('click', openTokenModal);
   eventoSelector.addEventListener('change', (e) => cambiarEvento(e.target.value));
   if (temaSelector) temaSelector.addEventListener('change', (e) => cambiarTema(e.target.value));

@@ -2,6 +2,8 @@
 // ui.js - Helpers de UI: toast, modal, confirm, FAB
 // ============================================================
 
+import { icons } from './icons.js';
+
 export function showToast(msg, type) {
   type = type || 'info';
   const root = document.getElementById('toast-root');
@@ -39,7 +41,7 @@ export function confirmDialog(title, msg) {
     openModal(
       '<div class="modal__header">' +
         '<h2 class="modal__title">' + title + '</h2>' +
-        '<button class="kebab" type="button" data-close aria-label="Cerrar">X</button>' +
+        '<button class="kebab" type="button" data-close aria-label="Cerrar">' + icons.close + '</button>' +
       '</div>' +
       '<div class="modal__body"><p>' + msg + '</p></div>' +
       '<div class="modal__footer">' +
@@ -56,11 +58,12 @@ export function confirmDialog(title, msg) {
   });
 }
 
-export function setFab(label, onClick) {
+export function setFab(ariaLabel, onClick, html) {
   const fab = document.getElementById('fab');
-  if (!label) { fab.hidden = true; fab.onclick = null; return; }
+  if (!ariaLabel) { fab.hidden = true; fab.onclick = null; fab.innerHTML = ''; return; }
   fab.hidden = false;
-  fab.setAttribute('aria-label', label);
+  fab.setAttribute('aria-label', ariaLabel);
+  fab.innerHTML = html || icons.plus;
   fab.onclick = onClick;
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="cereza">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,12 +43,12 @@
     <aside class="app-drawer" aria-label="Navegación principal">
       <nav>
         <ul class="app-drawer__list">
-          <li><a href="#/dashboard" data-route="dashboard" class="app-drawer__link">Dashboard</a></li>
-          <li><a href="#/alumnas"   data-route="alumnas"   class="app-drawer__link">Alumnas</a></li>
-          <li><a href="#/disenos"   data-route="disenos"   class="app-drawer__link">Diseños</a></li>
-          <li><a href="#/eventos"   data-route="eventos"   class="app-drawer__link">Eventos</a></li>
-          <li><a href="#/pagos"     data-route="pagos"     class="app-drawer__link">Pagos</a></li>
-          <li><a href="#/reportes"  data-route="reportes"  class="app-drawer__link">Reportes</a></li>
+          <li><a href="#/dashboard" data-route="dashboard" class="app-drawer__link"><span class="app-drawer__icon" data-icon="dashboard"></span><span>Dashboard</span></a></li>
+          <li><a href="#/alumnas"   data-route="alumnas"   class="app-drawer__link"><span class="app-drawer__icon" data-icon="users"></span><span>Alumnas</span></a></li>
+          <li><a href="#/disenos"   data-route="disenos"   class="app-drawer__link"><span class="app-drawer__icon" data-icon="shirt"></span><span>Diseños</span></a></li>
+          <li><a href="#/eventos"   data-route="eventos"   class="app-drawer__link"><span class="app-drawer__icon" data-icon="calendar"></span><span>Eventos</span></a></li>
+          <li><a href="#/pagos"     data-route="pagos"     class="app-drawer__link"><span class="app-drawer__icon" data-icon="money"></span><span>Pagos</span></a></li>
+          <li><a href="#/reportes"  data-route="reportes"  class="app-drawer__link"><span class="app-drawer__icon" data-icon="chart"></span><span>Reportes</span></a></li>
         </ul>
       </nav>
     </aside>
@@ -64,7 +64,7 @@
     </main>
   </div>
 
-  <button id="fab" class="fab" type="button" hidden aria-label="Acción principal">+</button>
+  <button id="fab" class="fab" type="button" hidden aria-label="Acción principal"></button>
 
   <div id="modal-root" class="modal-root" hidden></div>
   <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
