@@ -1438,5 +1438,21 @@
     },
     "activa_global": true,
     "notas": ""
+  },
+  {
+    "id": "alu_mv9q0u6k_amse",
+    "nombre": "Faustina",
+    "contacto": "",
+    "tutor": "",
+    "medidas": {
+      "busto": null,
+      "cintura": null,
+      "cadera": null,
+      "altura": null,
+      "talle": "",
+      "obs": ""
+    },
+    "activa_global": true,
+    "notas": ""
   }
 ]

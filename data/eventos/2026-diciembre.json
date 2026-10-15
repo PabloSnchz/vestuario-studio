@@ -1783,6 +1783,31 @@
         }
       ],
       "notas": ""
+    },
+    {
+      "alumna_id": "alu_mv9q0u6k_amse",
+      "activa_en_evento": true,
+      "grupo": "Comedia",
+      "subgrupo": "Vestuario",
+      "diseno_id": "",
+      "tipologia": "",
+      "precio_final": 75000,
+      "bonificacion": 0,
+      "cuotas": [
+        {
+          "nro": 1,
+          "monto": 37500,
+          "pagado": false,
+          "fecha": null
+        },
+        {
+          "nro": 2,
+          "monto": 37500,
+          "pagado": false,
+          "fecha": null
+        }
+      ],
+      "notas": ""
     }
   ]
 }
