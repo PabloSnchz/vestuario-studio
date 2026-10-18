@@ -1124,13 +1124,13 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
           "nro": 2,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         }
       ],
