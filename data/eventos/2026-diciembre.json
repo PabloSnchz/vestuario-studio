@@ -908,7 +908,7 @@
         {
           "nro": 1,
           "monto": 37500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
