@@ -260,7 +260,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -404,7 +404,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -428,7 +428,7 @@
         {
           "nro": 1,
           "monto": 42500,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -500,7 +500,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1316,7 +1316,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1436,7 +1436,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1580,7 +1580,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1604,7 +1604,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
@@ -1700,7 +1700,7 @@
         {
           "nro": 1,
           "monto": 40000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
