@@ -572,7 +572,7 @@
         {
           "nro": 1,
           "monto": 35000,
-          "pagado": false,
+          "pagado": true,
           "fecha": null
         },
         {
