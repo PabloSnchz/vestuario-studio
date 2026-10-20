@@ -806,18 +806,18 @@
       "subgrupo": "Vestuario",
       "diseno_id": "",
       "tipologia": "Falda",
-      "precio_final": 75000,
+      "precio_final": 85000,
       "bonificacion": 0,
       "cuotas": [
         {
           "nro": 1,
-          "monto": 37500,
-          "pagado": false,
+          "monto": 42500,
+          "pagado": true,
           "fecha": null
         },
         {
           "nro": 2,
-          "monto": 37500,
+          "monto": 42500,
           "pagado": false,
           "fecha": null
         }
